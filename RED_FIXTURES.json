@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cli-proof-used-for-ui-claim",
+    "local_status": "planned",
+    "guards_claims": [
+      "CLAIM-012"
+    ],
+    "reason": "Review UI claims must not be proven from CLI-only receipts."
+  },
+  {
+    "id": "hidden-withheld-claim",
+    "local_status": "planned",
+    "guards_claims": [
+      "CLAIM-008",
+      "CLAIM-009",
+      "CLAIM-010",
+      "CLAIM-011",
+      "CLAIM-012",
+      "CLAIM-013"
+    ],
+    "reason": "Future capability claims must remain visible in VERIFICATION_BACKLOG.json until proven."
+  },
+  {
+    "id": "live-claim-zero-digest",
+    "local_status": "planned",
+    "guards_claims": [
+      "CLAIM-008",
+      "CLAIM-011"
+    ],
+    "reason": "Live capture and evidence compiler claims require nonzero artifact digests."
+  },
+  {
+    "id": "raw-private-transcript-in-bundle",
+    "local_status": "local_extension",
+    "guards_claims": [
+      "CLAIM-006",
+      "CLAIM-010"
+    ],
+    "reason": "Skill files must never persist raw private transcript or audio content."
+  }
+]

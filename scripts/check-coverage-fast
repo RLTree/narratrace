@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+
+test -f "${skill_dir}/.harness/coverage-manifest.json"
+test -f "${skill_dir}/.harness/coverage-command"
+bash "${skill_dir}/scripts/check-coverage-policy"
+
+echo "harness-check:coverage-fast pass"

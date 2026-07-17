@@ -1,0 +1,108 @@
+{
+  "amendmentRows": 5,
+  "check_set_digest": "sha256:42cf38f82728b5b320a3d074f34befb57da10442d3a2f73aae4bf2ce5e113919",
+  "checks": [
+    {
+      "id": "required-paths-readable",
+      "status": "passed"
+    },
+    {
+      "id": "lane-registry-shape",
+      "status": "passed"
+    },
+    {
+      "id": "verification-backlog-shape",
+      "status": "passed"
+    },
+    {
+      "id": "completion-manifest-shape",
+      "status": "passed"
+    },
+    {
+      "id": "red-fixtures-shape",
+      "status": "passed"
+    },
+    {
+      "id": "amendment-log-shape",
+      "status": "passed"
+    },
+    {
+      "id": "required-claim-id-closure",
+      "status": "passed"
+    },
+    {
+      "id": "contract-hashes-current",
+      "status": "passed"
+    },
+    {
+      "id": "identity-chain",
+      "status": "passed"
+    },
+    {
+      "id": "repo-relative-artifact-paths",
+      "status": "passed"
+    },
+    {
+      "id": "artifact-digests-current",
+      "status": "passed"
+    },
+    {
+      "id": "local-validator-receipts-current",
+      "status": "passed"
+    },
+    {
+      "id": "rust-only-current-authority",
+      "status": "passed"
+    }
+  ],
+  "claimCeiling": "local Rust bundle validation only; not a full ultragoal-audit receipt, review-team sign-off, live capability proof, or product-cohesion proof",
+  "claimIds": [
+    "CLAIM-001",
+    "CLAIM-002",
+    "CLAIM-003",
+    "CLAIM-004",
+    "CLAIM-005",
+    "CLAIM-006",
+    "CLAIM-007",
+    "CLAIM-008",
+    "CLAIM-009",
+    "CLAIM-010",
+    "CLAIM-011",
+    "CLAIM-012",
+    "CLAIM-013"
+  ],
+  "commit": "NO-GIT-20260619",
+  "generated_artifacts": [
+    {
+      "kind": "local-rust-bundle-validation-receipt",
+      "path": ".codex/skills/narrated-record-replay/validation_artifacts/root-gate/2026-06-21-rust-bundle-validation.json"
+    }
+  ],
+  "generated_at": "2026-06-21T03:45:00Z",
+  "pythonRequired": false,
+  "required_check_ids": [
+    "required-paths-readable",
+    "lane-registry-shape",
+    "verification-backlog-shape",
+    "completion-manifest-shape",
+    "red-fixtures-shape",
+    "amendment-log-shape",
+    "required-claim-id-closure",
+    "contract-hashes-current",
+    "identity-chain",
+    "repo-relative-artifact-paths",
+    "artifact-digests-current",
+    "local-validator-receipts-current",
+    "rust-only-current-authority"
+  ],
+  "root": "/Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay",
+  "run_id": "local-rust-bundle-validation-2026-06-21T03-45-00Z",
+  "schema": "narrated-record-replay.bundle-validation.v1",
+  "status": "passed",
+  "target": {
+    "repo_root": "/Users/terrynoblin/personal-monorepo",
+    "skill_dir": "/Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay"
+  },
+  "validator": "narrated-record-replay-rust-bundle-validator",
+  "version": "2026-06-21"
+}

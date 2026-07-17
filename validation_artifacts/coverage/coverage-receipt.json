@@ -1,0 +1,409 @@
+{
+  "claim_ceiling": "withheld_or_blocked",
+  "claim_id": "CLAIM-005",
+  "command": "CARGO_TARGET_DIR=/private/tmp/narrated-record-replay-security-final cargo llvm-cov --manifest-path /Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay/Cargo.toml --json --output-path /Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay/validation_artifacts/coverage/llvm-cov.json -- --test-threads=1",
+  "coverage": {
+    "blocker_or_debt_id": "coverage-below-100-percent",
+    "floor_percent": 100.0,
+    "owner": "root",
+    "percent": 96.15577637257854,
+    "policy": "blocked_or_withheld",
+    "reason": "Repo-owned Rust line coverage is below the required 100 percent floor."
+  },
+  "exclusions": [],
+  "generated_at": "2026-07-16T20:26:57Z",
+  "measured_dimensions": [
+    "line"
+  ],
+  "schema": "harness-ultragoal.coverage-receipt.v1",
+  "target_paths": [
+    "src"
+  ],
+  "tool": "cargo-llvm-cov",
+  "uncovered_records": [
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/audio_input.rs",
+      "reason": "line coverage is 95.744681% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/audio_input/devices.rs",
+      "reason": "line coverage is 96.491228% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/audio_retention.rs",
+      "reason": "line coverage is 98.870056% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/batch_transcribe/api_and_audio.rs",
+      "reason": "line coverage is 97.695853% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/batch_transcribe/prompt.rs",
+      "reason": "line coverage is 96.618357% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/batch_transcribe/security.rs",
+      "reason": "line coverage is 92.682927% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/batch_transcribe/test_http.rs",
+      "reason": "line coverage is 75.862069% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle.rs",
+      "reason": "line coverage is 91.428571% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/amendments.rs",
+      "reason": "line coverage is 95.588235% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/identity.rs",
+      "reason": "line coverage is 88.059701% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/receipt.rs",
+      "reason": "line coverage is 95.205479% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/schema.rs",
+      "reason": "line coverage is 96.261682% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/schema_rows.rs",
+      "reason": "line coverage is 94.776119% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/bundle/util.rs",
+      "reason": "line coverage is 96.190476% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/config.rs",
+      "reason": "line coverage is 83.333333% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/config/parsing.rs",
+      "reason": "line coverage is 98.214286% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/coverage/policy.rs",
+      "reason": "line coverage is 94.303797% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/coverage/receipt.rs",
+      "reason": "line coverage is 97.478992% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/delay_eval/compare_and_read.rs",
+      "reason": "line coverage is 97.572816% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/delay_eval/write.rs",
+      "reason": "line coverage is 96.323529% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/inspect/artifacts/scan.rs",
+      "reason": "line coverage is 98.742138% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/inspect/helpers.rs",
+      "reason": "line coverage is 95.604396% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/inspect/packet.rs",
+      "reason": "line coverage is 95.673077% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/inspect/usefulness/evaluate.rs",
+      "reason": "line coverage is 95.918367% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/main.rs",
+      "reason": "line coverage is 91.011236% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/packet/build.rs",
+      "reason": "line coverage is 95.555556% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/packet/evidence_and_summary.rs",
+      "reason": "line coverage is 95.108696% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/parent_operation/evaluate.rs",
+      "reason": "line coverage is 96.774194% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/parent_operation/time.rs",
+      "reason": "line coverage is 98.245614% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/private_fs.rs",
+      "reason": "line coverage is 96.969697% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/realtime/capture_loop.rs",
+      "reason": "line coverage is 80.454545% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/realtime/entry.rs",
+      "reason": "line coverage is 98.823529% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/realtime/helpers.rs",
+      "reason": "line coverage is 96.153846% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/realtime/runtime_config.rs",
+      "reason": "line coverage is 82.222222% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/receipt/verification.rs",
+      "reason": "line coverage is 99.024390% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/receipt/write.rs",
+      "reason": "line coverage is 99.004975% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/replay.rs",
+      "reason": "line coverage is 98.324022% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/artifact.rs",
+      "reason": "line coverage is 99.209486% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/build.rs",
+      "reason": "line coverage is 94.285714% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/contract/product_cohesion.rs",
+      "reason": "line coverage is 96.954315% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/contract/write.rs",
+      "reason": "line coverage is 98.648649% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/html.rs",
+      "reason": "line coverage is 99.038462% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/review/inspection.rs",
+      "reason": "line coverage is 98.333333% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/safe_path.rs",
+      "reason": "line coverage is 92.941176% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/session/preflight/status.rs",
+      "reason": "line coverage is 99.212598% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/session/prepare.rs",
+      "reason": "line coverage is 95.480226% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/session/runtime.rs",
+      "reason": "line coverage is 93.076923% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/alignment.rs",
+      "reason": "line coverage is 94.797688% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/build.rs",
+      "reason": "line coverage is 95.205479% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/conflict.rs",
+      "reason": "line coverage is 95.081967% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/ingestion.rs",
+      "reason": "line coverage is 96.969697% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/notes.rs",
+      "reason": "line coverage is 95.402299% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/record_replay.rs",
+      "reason": "line coverage is 99.152542% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/time.rs",
+      "reason": "line coverage is 93.023256% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/timeline/transcript.rs",
+      "reason": "line coverage is 97.093023% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_alignment/alignment_windows.rs",
+      "reason": "line coverage is 99.315068% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_alignment/limits.rs",
+      "reason": "line coverage is 95.238095% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_alignment/similarity_and_output.rs",
+      "reason": "line coverage is 97.520661% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_alignment/tokens_and_spans.rs",
+      "reason": "line coverage is 98.173516% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_alignment/types_and_io.rs",
+      "reason": "line coverage is 98.666667% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_cleanup/api_and_dictionary.rs",
+      "reason": "line coverage is 97.905759% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_cleanup/prompt.rs",
+      "reason": "line coverage is 94.557823% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/transcript_cleanup/security.rs",
+      "reason": "line coverage is 98.666667% in current cargo-llvm-cov report"
+    },
+    {
+      "blocker_or_debt_id": "coverage-below-100-percent",
+      "owner": "root",
+      "path": "src/voice.rs",
+      "reason": "line coverage is 99.295775% in current cargo-llvm-cov report"
+    }
+  ]
+}

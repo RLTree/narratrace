@@ -1,0 +1,2 @@
+Core and companion skill contracts route direct invocation through capture-first behavior.
+They forbid pre-recording intake and defer target/output questions until after packet review.

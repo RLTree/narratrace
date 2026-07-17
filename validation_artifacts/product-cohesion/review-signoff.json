@@ -1,0 +1,14 @@
+{
+  "schema": "harness-ultragoal.product-cohesion-review.v1",
+  "status": "pass",
+  "actor_disjoint": true,
+  "authority": "same_round_harness_review",
+  "method": "same-round four-person harness review plus deterministic target-repo receipt audit",
+  "reviewers": [
+    "harness-contract-claim-falsifier",
+    "harness-orchestration-recovery-falsifier",
+    "harness-security-trust-boundary-falsifier",
+    "harness-product-simplicity-falsifier"
+  ],
+  "claim_ceiling": "static/package/preflight sign-off only"
+}

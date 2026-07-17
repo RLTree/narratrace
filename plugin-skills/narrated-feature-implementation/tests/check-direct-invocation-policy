@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+skill_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+grep -Eq 'allow_implicit_invocation:[[:space:]]*false' \
+  "${skill_dir}/agents/openai.yaml"
+grep -Fq 'Only direct invocation of this specialized skill authorizes its bounded capture.' \
+  "${skill_dir}/SKILL.md"
+grep -Fq 'not authorize this skill.' "${skill_dir}/SKILL.md"
+grep -Fq 'do not start' "${skill_dir}/SKILL.md"
+grep -Fq 'capture or add microphone or postprocessing consent flags' \
+  "${skill_dir}/SKILL.md"
+
+echo "direct-invocation-policy: narrated-feature-implementation pass"

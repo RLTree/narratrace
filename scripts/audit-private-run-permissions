@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="${1:-/tmp/narrated-record-replay}"
+
+if [[ ! -e "${root}" ]]; then
+  exit 0
+fi
+
+failures=0
+
+while IFS= read -r path; do
+  printf 'private run permission audit: symlink blocked: %s\n' "${path}" >&2
+  failures=1
+done < <(find "${root}" -type l -print)
+
+while IFS= read -r path; do
+  mode="$(stat -f '%Lp' "${path}")"
+  if [[ "${mode}" != "700" ]]; then
+    printf 'private run permission audit: directory must be 700: %s mode=%s\n' "${path}" "${mode}" >&2
+    failures=1
+  fi
+done < <(find "${root}" -type d -print)
+
+while IFS= read -r path; do
+  mode="$(stat -f '%Lp' "${path}")"
+  if [[ "${mode}" != "600" ]]; then
+    printf 'private run permission audit: file must be 600: %s mode=%s\n' "${path}" "${mode}" >&2
+    failures=1
+  fi
+done < <(find "${root}" -type f -print)
+
+exit "${failures}"

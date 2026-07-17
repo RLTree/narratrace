@@ -1,0 +1,38 @@
+{
+  "schema": "harness-ultragoal.coverage-manifest.v1",
+  "manifest_version": 1,
+  "owner": "root",
+  "policy": "100_percent_required",
+  "coverage_command_id": "narrated-record-replay-rust-llvm-cov",
+  "coverage_command_path": ".harness/coverage-command",
+  "coverage_receipt_output_path": "validation_artifacts/coverage/coverage-receipt.json",
+  "repo_owned_source_roots": [
+    "src"
+  ],
+  "required_target_paths": [
+    "src"
+  ],
+  "required_measured_dimensions_per_root": [
+    {
+      "root": "src",
+      "dimensions": [
+        "line"
+      ]
+    }
+  ],
+  "exclusions": [],
+  "claim_ceiling_when_incomplete": "withheld_or_blocked",
+  "fast_full_gate_split": {
+    "fast_gate": "scripts/check-coverage-fast",
+    "full_gate": "scripts/check-coverage-full",
+    "fast_supports_completion": false,
+    "full_required_for_completion": true
+  },
+  "scope_debt": [
+    {
+      "id": "DEBT-HU010-002",
+      "reason": "Current real coverage tooling measures Rust source only. Scripts, docs, templates, package hygiene, and product surfaces remain covered by dedicated gates and reviewer judgment until stronger multi-surface coverage is implemented.",
+      "claim_ceiling": "coverage-complete withheld"
+    }
+  ]
+}

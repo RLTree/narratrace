@@ -1,0 +1,85 @@
+# law_id	truth	mechanism	exact_enforcer	rationale_or_proof
+STD-01-001	yes	deterministic_gate	scripts/check-line-cap	Fails when active source, skill, standards, or hand-authored docs exceed 250 lines.
+STD-01-002	yes	deterministic_gate	scripts/check-line-cap	Fails oversized hand-authored files while excluding generated state/proof roots.
+STD-01-003	yes	reviewer_judgment	review-team	Requires context about whether new behavior was added before splitting; deterministic detection would be fake precision.
+STD-01-004	yes	deterministic_gate	scripts/check-agent-standards	Requires scripts/check to invoke scripts/check-line-cap and fails if missing.
+STD-01-005	yes	reviewer_judgment	review-team	Whether path names explain domain responsibility depends on codebase semantics.
+STD-01-006	yes	reviewer_judgment	review-team	Generic namespace harm depends on usage and ownership, not name matching alone.
+STD-01-007	yes	reviewer_judgment	review-team	Detecting repeated concepts versus justified repetition needs design judgment.
+STD-01-008	yes	reviewer_judgment	review-team	Module concept boundaries are architectural judgment; directory names alone are insufficient.
+STD-01-009	partial	reviewer_judgment	review-team; partial: scripts/check-skill-contracts	Entrypoint/manual balance is semantic; script checks critical startup/routing only.
+STD-01-010	partial	reviewer_judgment	review-team; partial: scripts/check-skill-contracts	Shared-detail routing is semantic; script checks required links and companion startup constraints.
+STD-01-011	yes	deterministic_gate	scripts/check-skill-contracts	Fails if companion skills omit capture-first, no-pre-intake, consent, or alignment guidance.
+STD-01-012	yes	deterministic_gate	scripts/check-skill-contracts	Fails if user-facing narrated skills mention harness-ultragoal.
+STD-01-013	yes	not_yet_enforced_with_reason	doc-freshness-backlog	Document freshness is classified as semantic backlog to avoid fake deterministic precision; completion claims must report docs updated or stale-doc blockers.
+STD-01-014	yes	not_yet_enforced_with_reason	doc-freshness-backlog	Affected-doc staleness cannot be inferred from static file names; next useful gate is a typed stale-doc blocker receipt.
+STD-01-015	yes	not_yet_enforced_with_reason	generated-doc-index-backlog	Generated-doc handling needs a generator inventory before mechanization; current row withholds overclaims.
+STD-01-016	yes	not_yet_enforced_with_reason	stale-doc-backlog-row	Multiple owed-update destinations make simple grep fake precision; next candidate is Rust validation for stale-doc backlog rows.
+STD-02-018	yes	reviewer_judgment	final-report	Executable evidence must be matched to the behavior changed in the current diff.
+STD-02-019	yes	rust_test	coverage::validate_coverage_policy	Rust validator requires coverage receipt fields and blocks malformed or absent coverage policy.
+STD-02-020	yes	rust_test	coverage::validate_coverage_policy	Rust validator rejects cargo-test/pass-count language as coverage proof.
+STD-02-021	yes	rust_test	coverage::validate_coverage_policy	Rust validator requires lower-than-100 coverage receipts to use withheld_or_blocked claim ceiling.
+STD-02-022	yes	rust_test	coverage::validate_coverage_policy	Rust validator rejects exclusions counted as covered and requires rationale.
+STD-02-023	partial	deterministic_gate	scripts/check-coverage-fast and scripts/check-coverage-full	Gates now require manifest and fast/full entrypoints; changed-file coupling and broader non-Rust source coverage remain debt in the Harness 0.0.10 matrix.
+STD-02-001	yes	runtime_receipt	evidence-boundary-report.json/review-contract.json	Receipt must mark UI/R&R events as observed action evidence.
+STD-02-002	yes	runtime_receipt	evidence-boundary-report.json/review-contract.json	Receipt must mark transcript as spoken context, not action proof.
+STD-02-003	yes	runtime_receipt	final-transcript-alignment.json	Alignment artifact proves timestamp windows and confidence, not direct action truth.
+STD-02-004	yes	runtime_receipt	evidence-boundary-report.json	Artifact must preserve UI order, transcript intent, and unresolved conflicts.
+STD-02-005	yes	runtime_receipt	audio-chunks.jsonl/narration.sync.jsonl	Artifacts prove audio sample/time anchors and sync start/stop metadata exist.
+STD-02-006	yes	reviewer_judgment	review-team	Clock-domain mixing assumptions require context and drift interpretation.
+STD-02-007	yes	runtime_receipt	temporal-context.json/final-transcript-alignment.json	Artifacts expose windows, confidence labels, and clock-source assumptions.
+STD-02-008	yes	rust_test	replay::tests::replay_voice_preview_rejects_symlinked_parameters	Typed replay preview validates parameter artifact before playback behavior.
+STD-02-009	yes	rust_test	config::* tests; timeline::* tests; receipt::* tests	Boundary parsers reject malformed args, paths, event metadata, and receipts.
+STD-02-010	yes	rust_test	bundle::* tests; timeline::* tests; packet::* tests	Parsed knowledge is exercised through typed Rust structs and validators.
+STD-02-011	yes	rust_test	safe_path::tests::*; bundle::receipt::*; inspect::* symlink tests	Path containment and symlink rejection are tested in Rust.
+STD-02-012	yes	reviewer_judgment	review-team	Event-shape guessing is a design/code-review judgment across changes.
+STD-02-013	partial	reviewer_judgment	review-team; partial: scripts/check-agent-standards	Whether review comments were promoted appropriately needs judgment; matrix prevents unclassified laws.
+STD-02-014	yes	deterministic_gate	scripts/check	Fails if current authority scripts/docs mention python3, pytest, __pycache__, or validate_bundle.py.
+STD-02-015	yes	reviewer_judgment	review-team	Proof-surface substitution requires judgment about the claim being made.
+STD-02-016	yes	reviewer_judgment	review-team	Fixture versus live-proof sufficiency depends on the claim and artifact.
+STD-02-017	yes	deterministic_gate	scripts/audit-private-run-permissions	Fails if local-private runtime roots have unsafe permissions without reading raw content.
+STD-03-011	partial	deterministic_gate	scripts/check-agent-standards	Gate requires PLANS.md law coverage; semantic drift inside PLANS.md still needs review against active ExecPlans and receipts.
+STD-03-001	yes	deterministic_gate	validate-bundle lane registry/manifest checks	Fails when EXECPLAN and bundle-required plan files are missing or stale by digest.
+STD-03-002	yes	reviewer_judgment	review-team	Progress-entry usefulness and completeness are semantic.
+STD-03-003	yes	reviewer_judgment	review-team	Future-agent executability of TODO rows needs human/agent judgment.
+STD-03-004	partial	reviewer_judgment	review-team; partial: validate-bundle digest chain	Stale prose cannot be proven mechanically; digest chain proves edited files are acknowledged.
+STD-03-005	yes	deterministic_gate	harness target-repo audit and .codex/environments/environment.toml	Audit checks worktree env shape and state roots under .codex-worktree.
+STD-03-006	yes	runtime_receipt	.codex-worktree/env.sh sourced validation receipt	Receipt proves validation ran after sourcing local worktree env.
+STD-03-007	yes	deterministic_gate	harness target-repo audit	Fails environment setup with hardcoded worktree paths.
+STD-03-008	yes	reviewer_judgment	review-team	Whether orchestration is deliverable/proof-owned rather than chat-owned is semantic.
+STD-03-009	yes	reviewer_judgment	review-team	Parent ownership of dependency order and claim ceilings is a live orchestration judgment.
+STD-03-010	yes	reviewer_judgment	review-team	Root completion requires comparing lane state, package state, and current proof.
+STD-04-001	partial	reviewer_judgment	review-team; partial: scripts/check-package-hygiene	Package gate proves installed/cache roots exclude private artifacts; broader local-private handling across all sinks needs judgment.
+STD-04-002	yes	reviewer_judgment	review-team	Distillation/redaction sufficiency is workflow-specific.
+STD-04-003	partial	reviewer_judgment	review-team; partial: scripts/check-package-hygiene	Package gate proves installed/cache packages exclude private artifacts; memory/wiki/Slack/email/git publication needs review and explicit consent.
+STD-04-004	yes	rust_test	inspect::* leak tests; packet::* privacy tests	Fixture and generated-artifact privacy boundaries are tested with synthetic/redacted data.
+STD-04-005	yes	reviewer_judgment	review-team	Whether completion requires live audio/network depends on the claim.
+STD-04-006	yes	runtime_receipt	dogfood-receipt.json plus parent-operation-receipt.json	Receipts prove live R&R plus narration evidence for recorder claims.
+STD-04-007	yes	runtime_receipt	review-contract.json/review-artifact browser proof	Receipts prove review UI state, product inspection, and recovery evidence.
+STD-04-008	yes	reviewer_judgment	operator packet review	Packet usefulness is semantic and workflow-specific.
+STD-04-009	yes	deterministic_gate	scripts/check-skill-contracts	Fails if narrated skills ask pre-intake instead of capture-first/no-pre-intake.
+STD-04-010	yes	rust_test	config::tests::default_max_seconds_is_thirty_minutes	Unit test proves default bounded capture length.
+STD-04-011	yes	runtime_receipt	parent-operation-receipt.json	Receipt proves coordinated start and blocks manual sequential-start claims.
+STD-04-012	yes	rust_test	audio_input::* iPhone/default selection tests	Unit tests enforce non-iPhone auto mic preference order.
+STD-04-013	partial	deterministic_gate	scripts/check-product-fitness	Gate requires the Product Fitness surface and blocks unsupported success by accepting only withheld/blocked receipt state until real proof exists.
+STD-04-014	partial	deterministic_gate	scripts/check-product-fitness	Current gate records required dimensions and claim ceiling but does not yet prove a real completed Product Fitness receipt.
+STD-04-015	partial	deterministic_gate	scripts/check-product-fitness	Gate prevents Product Fitness from being silently absent; reviewer judgment still checks claim wording for substitutions.
+STD-05-001	yes	deterministic_gate	validate-bundle required claim id checks	Fails if positive claims do not map to GOAL_CONTRACT claim ids.
+STD-05-002	yes	reviewer_judgment	review-team	Claim-ceiling honesty requires comparing proof to stated claim.
+STD-05-003	yes	reviewer_judgment	review-team	Falsification quality is semantic and adversarial.
+STD-05-004	yes	reviewer_judgment	review-team	Team composition is enforced by review procedure, not static repo state.
+STD-05-005	yes	reviewer_judgment	review-team	Same-round signoff freshness requires live orchestration judgment.
+STD-05-006	yes	reviewer_judgment	review-team	Whether extra rounds are justified depends on concrete blocker disposition.
+STD-05-007	yes	reviewer_judgment	final-report	Final verification wording depends on actual commands/artifacts run.
+STD-05-008	yes	reviewer_judgment	final-report	Security summary must reflect current changes and residual risk.
+STD-05-009	yes	reviewer_judgment	final-report	Performance impact depends on touched code and runtime behavior.
+STD-05-010	yes	reviewer_judgment	final-report	Quality summary must synthesize tests, evals, and residual gaps.
+STD-05-015	partial	reviewer_judgment	final-report; partial: coverage::validate_coverage_policy	Final wording is semantic; Rust gate prevents coverage proof substitution.
+STD-05-011	yes	reviewer_judgment	final-report	Claim ceiling is a proof-to-claim judgment.
+STD-05-012	yes	deterministic_gate	scripts/check-package-sync	Fails if packageable source core or companion skills differ from installed/cache roots.
+STD-05-013	yes	reviewer_judgment	review-team	Version bump need depends on whether behavior is app-visible.
+STD-05-014	yes	package_hygiene	scripts/check-package-hygiene	Fails installed/cache roots with source-only/private artifacts, symlinks, or non-regular entries.
+STD-06-001	yes	reviewer_judgment	review-team	Severity and recurrence require operational judgment.
+STD-06-002	yes	reviewer_judgment	review-team	Smallest durable fix is context-dependent engineering judgment.
+STD-06-003	yes	reviewer_judgment	review-team	Purposefulness of files cannot be safely decided by filename alone.
+STD-06-004	yes	deterministic_gate	scripts/check-agent-standards	The standards checker fails when enforcement TSV, JSON, and audit rows drift.

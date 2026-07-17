@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+skill_dir="${1:?usage: check-agent-standards-rowset SKILL_DIR}"
+enforcement="${skill_dir}/agent-standards/enforcement.tsv"
+audit="${skill_dir}/agent-standards/enforcement-audit.tsv"
+enforcement_json="${NRR_ENFORCEMENT_JSON_OVERRIDE:-${skill_dir}/agent-standards/enforcement.json}"
+modules=(
+  "01-namespace-and-progressive-disclosure.md"
+  "02-boundaries-validation-and-enforcement.md"
+  "03-execplans-worktrees-and-orchestration.md"
+  "04-security-reliability-and-product-cohesion.md"
+  "05-review-and-completion.md"
+  "06-standards-gardening.md"
+)
+
+expected="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-expected.XXXXXX")"
+actual="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-actual.XXXXXX")"
+audit_ids="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-audit.XXXXXX")"
+matrix_ids="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-matrix.XXXXXX")"
+missing="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-missing.XXXXXX")"
+extra="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-extra.XXXXXX")"
+cleanup() {
+  rm -f "${expected}" "${actual}" "${audit_ids}" "${matrix_ids}" \
+    "${missing}" "${extra}"
+}
+trap cleanup EXIT
+
+for module in "${modules[@]}"; do
+  awk -v module="${module}" '
+    function emit() {
+      if (law != "") {
+        gsub(/[[:space:]]+/, " ", law)
+        sub(/^ /, "", law)
+        sub(/ $/, "", law)
+        print module "\t" law
+        law = ""
+      }
+    }
+    /^- / { emit(); law = substr($0, 3); next }
+    /^  / && law != "" {
+      cont = $0
+      sub(/^  +/, "", cont)
+      law = law " " cont
+      next
+    }
+    /^$/ { emit(); next }
+    /^#/ { emit(); next }
+    { emit() }
+    END { emit() }
+  ' "${skill_dir}/agent-standards/${module}"
+done | sort > "${expected}"
+
+awk -F '\t' '
+  BEGIN {
+    allowed["deterministic_gate"] = 1
+    allowed["rust_test"] = 1
+    allowed["package_hygiene"] = 1
+    allowed["runtime_receipt"] = 1
+    allowed["reviewer_judgment"] = 1
+    allowed["not_yet_enforced_with_reason"] = 1
+  }
+  /^#/ || NF == 0 { next }
+  NF < 5 { print "malformed standards enforcement row: " $0 > "/dev/stderr"; bad = 1; next }
+  id[$1]++ { print "duplicate standards law id: " $1 > "/dev/stderr"; bad = 1 }
+  !allowed[$3] {
+    print "unknown standards enforcement mechanism for " $1 ": " $3 > "/dev/stderr"
+    bad = 1
+  }
+  $3 == "not_yet_enforced_with_reason" && $4 !~ /^reason:/ {
+    print "not_yet_enforced row needs reason authority: " $1 > "/dev/stderr"
+    bad = 1
+  }
+  {
+    key = $2 "\t" $5
+    if (key_seen[key]++) {
+      print "duplicate standards law mapping: " key > "/dev/stderr"
+      bad = 1
+    }
+    print key
+  }
+  END { if (bad) exit 1 }
+' "${enforcement}" | sort > "${actual}"
+
+awk -F '\t' '
+  /^#/ || NF == 0 { next }
+  NF < 5 { print "malformed standards audit row: " $0 > "/dev/stderr"; bad = 1; next }
+  $2 !~ /^(yes|partial|no)$/ {
+    print "audit truth must be yes, partial, or no for " $1 > "/dev/stderr"; bad = 1
+  }
+  $3 == "" || $4 == "" || $5 == "" {
+    print "audit row needs exact mechanism, enforcer, and rationale: " $1 > "/dev/stderr"; bad = 1
+  }
+  { print $1 }
+  END { if (bad) exit 1 }
+' "${audit}" | sort > "${audit_ids}"
+awk -F '\t' '/^#/ || NF == 0 { next } { print $1 }' "${enforcement}" | \
+  sort > "${matrix_ids}"
+
+comm -23 "${matrix_ids}" "${audit_ids}" > "${missing}"
+comm -13 "${matrix_ids}" "${audit_ids}" > "${extra}"
+if [[ -s "${missing}" || -s "${extra}" ]]; then
+  echo "standards audit/enforcement id drift" >&2
+  [[ ! -s "${missing}" ]] || cat "${missing}" >&2
+  [[ ! -s "${extra}" ]] || cat "${extra}" >&2
+  exit 1
+fi
+
+comm -23 "${expected}" "${actual}" > "${missing}"
+comm -13 "${expected}" "${actual}" > "${extra}"
+if [[ -s "${missing}" || -s "${extra}" ]]; then
+  echo "standards enforcement rows do not match current laws" >&2
+  [[ ! -s "${missing}" ]] || cat "${missing}" >&2
+  [[ ! -s "${extra}" ]] || cat "${extra}" >&2
+  exit 1
+fi
+
+awk -F '\t' '/^#/ || NF == 0 { next } {
+  print $1 "\t" $2 "\t" $3 "\t" $4 "\t" $5
+}' "${enforcement}" | sort > "${expected}"
+jq -r '.rows[] | [.law_id, .module, .enforcement, .authority, .law] | @tsv' \
+  "${enforcement_json}" | sort > "${actual}"
+comm -23 "${expected}" "${actual}" > "${missing}"
+comm -13 "${expected}" "${actual}" > "${extra}"
+if [[ -s "${missing}" || -s "${extra}" ]]; then
+  echo "standards enforcement json drifted from canonical TSV rows" >&2
+  [[ ! -s "${missing}" ]] || cat "${missing}" >&2
+  [[ ! -s "${extra}" ]] || cat "${extra}" >&2
+  exit 1
+fi
+
+if [[ "${NRR_SKIP_STANDARDS_DRIFT_FIXTURE:-0}" != "1" ]]; then
+  drift_json="$(mktemp "${TMPDIR:-/tmp}/nrr-standards-drift.XXXXXX")"
+  jq '(.rows[0].authority) = "drift-fixture"' \
+    "${enforcement_json}" > "${drift_json}"
+  if NRR_ENFORCEMENT_JSON_OVERRIDE="${drift_json}" \
+    NRR_SKIP_STANDARDS_DRIFT_FIXTURE=1 bash "$0" "${skill_dir}" >/dev/null 2>&1; then
+    echo "standards enforcement json drift fixture unexpectedly passed" >&2
+    rm -f "${drift_json}"
+    exit 1
+  fi
+  rm -f "${drift_json}"
+fi

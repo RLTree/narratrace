@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+manifest="${skill_dir}/Cargo.toml"
+
+export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-/private/tmp/narrated-record-replay-cargo-target-check}"
+
+cargo run --quiet --manifest-path "${manifest}" -- check-coverage-policy --skill-dir "${skill_dir}"

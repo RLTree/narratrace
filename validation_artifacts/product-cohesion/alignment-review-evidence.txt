@@ -1,0 +1,2 @@
+The review journey requires final-transcript-alignment.json, temporal-context.json,
+packet inspection, sync artifacts, and Record & Replay evidence before narration is tied to visible UI.

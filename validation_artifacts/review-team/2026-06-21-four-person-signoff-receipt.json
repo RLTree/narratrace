@@ -1,0 +1,173 @@
+{
+  "schema": "narrated-record-replay.repo-local-review-team-receipt.v1",
+  "generated_at": "2026-06-21T04:05:00Z",
+  "round_id": "nrr-2026-06-21-final-four-person-signoff",
+  "round_phase": "sign_off",
+  "status": "pass",
+  "policy": {
+    "required_reviewers": 4,
+    "model": "gpt-5.5",
+    "reasoning_effort": "high",
+    "provisional_approvals_required": false,
+    "frozen_candidate_required": false,
+    "extra_models_required": false,
+    "same_round_signoff_required": true
+  },
+  "boundary": {
+    "receipt_class": "repo-local-material-review-signoff",
+    "not_full_plugin_package_review_round": true,
+    "reason": "This skill directory is not a packaged harness-ultragoal plugin review-target/archive candidate. The full plugin review-round-receipt schema requires package validator, live registry exposure, review target, and archive anchors that do not exist for this repo-local skill setup lane.",
+    "claim_ceiling": "Review team sign-off covers the repo-local skill setup, Rust gate, 2026-06-21 partial dogfood evidence reconciliation, and honest claim ceiling only. It does not close CLAIM-008 through CLAIM-013, does not prove full ultragoal completion, and does not prove production readiness."
+  },
+  "proof_anchors": {
+    "local_validator_receipt": {
+      "path": ".codex/skills/narrated-record-replay/validation_artifacts/root-gate/2026-06-21-rust-bundle-validation.json",
+      "digest": "sha256:463fbb4d2978e2716e3f1263b91b2f5f07f8e4c0a344e5469b27eefb8fa20f3e"
+    },
+    "completion_manifest": {
+      "path": ".codex/skills/narrated-record-replay/COMPLETION_MANIFEST.json",
+      "digest": "sha256:cc17f351b51c01ee9331f00378530e617f4b3596f99c98354a87498d9005e88a"
+    },
+    "verification_backlog": {
+      "path": ".codex/skills/narrated-record-replay/VERIFICATION_BACKLOG.json",
+      "digest": "sha256:54f1177bd272c73c616b969c578a95c403fa0e305a52036b2c10602971f20844"
+    },
+    "goal_contract": {
+      "path": ".codex/skills/narrated-record-replay/GOAL_CONTRACT.md",
+      "digest": "sha256:41a7811c3fbf55fec628045ca86bd790dda90d7b1eb2575599a28f5c57ef27b0"
+    },
+    "execplan": {
+      "path": ".codex/skills/narrated-record-replay/EXECPLAN.md",
+      "digest": "sha256:2be6dcc969b27130049af3ad4b98ba605e2b993217efd8e72ccbf151870f60cd"
+    },
+    "dogfood_receipt_summary": {
+      "path": ".codex/skills/narrated-record-replay/validation_artifacts/runtime/2026-06-21-non-toy-coordinated-live-dogfood.md",
+      "digest": "sha256:4d8d00b138319772d7693062494caa933efeb0935c147a67685376cc70224a3e"
+    },
+    "check_wrapper": {
+      "path": ".codex/skills/narrated-record-replay/scripts/check",
+      "digest": "sha256:6c2d727395a6185029f98227f26c731821195d5f5c12e636540f99d2ecc7f486"
+    },
+    "quality_score": {
+      "path": ".codex/skills/narrated-record-replay/QUALITY_SCORE.md",
+      "digest": "sha256:7abeba419aa07c08e5a15bf1f3a0ab9c862971dd9bc4701a8ccd828eac649107"
+    },
+    "active_lane_execplan": {
+      "path": ".codex/skills/narrated-record-replay/docs/exec-plans/active/LANE-001-parent-setup-and-contract.md",
+      "digest": "sha256:32886c56434d66c6889e6c645a99023b35b11ab9c71843439bfca9ea64dbc9d9"
+    },
+    "tech_debt_tracker": {
+      "path": ".codex/skills/narrated-record-replay/docs/exec-plans/tech-debt-tracker.md",
+      "digest": "sha256:186de4213dd6c280f5ea329c31047e2f7ceb6c8f0a9489a39e0311b6eecb5cac"
+    }
+  },
+  "local_validation_observed": [
+    {
+      "command": "CARGO_TARGET_DIR=/private/tmp/narrated-record-replay-cargo-target cargo fmt --manifest-path .codex/skills/narrated-record-replay/Cargo.toml --check",
+      "result": "exit 0"
+    },
+    {
+      "command": "CARGO_TARGET_DIR=/private/tmp/narrated-record-replay-cargo-target cargo test --manifest-path .codex/skills/narrated-record-replay/Cargo.toml",
+      "result": "exit 0; 31 passed"
+    },
+    {
+      "command": ".codex/skills/narrated-record-replay/scripts/check",
+      "result": "exit 0; 31 passed; skill-local target/cargo-target guard active"
+    },
+    {
+      "command": "CARGO_TARGET_DIR=/private/tmp/narrated-record-replay-cargo-target cargo run --quiet --manifest-path .codex/skills/narrated-record-replay/Cargo.toml -- validate-bundle --skill-dir /Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay",
+      "result": "exit 0; amendmentRows=5"
+    },
+    {
+      "command": "find .codex/skills/narrated-record-replay -maxdepth 2 ( -name target -o -name cargo-target ) -print",
+      "result": "exit 0; no output"
+    },
+    {
+      "command": "current-facing stale proof-floor scan",
+      "result": "exit 1; no matches"
+    }
+  ],
+  "reviewers": [
+    {
+      "persona": "contract_claim_falsifier",
+      "agent_type": "harness_contract_claim_falsifier",
+      "reviewer_agent_id": "019ee849-a81f-7450-bdde-062e00c482d1",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "fresh_context": true,
+      "reused_reviewer": false,
+      "verdict": "SIGN_OFF",
+      "completed_at": "2026-06-21T04:00:00Z",
+      "persona_prompt_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/agents/contract-claim-falsifier.md",
+      "persona_prompt_digest": "sha256:ba89a5210b6dece8a866ba88cae8e5c48473866c12e6235832ee3b7d6948f28f",
+      "custom_agent_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/custom-agents/harness-contract-claim-falsifier.toml",
+      "custom_agent_digest": "sha256:a280946047810d61ac768b6d37764928c751ccbce01788b1c62bd07dafdd78df",
+      "material_blockers": []
+    },
+    {
+      "persona": "orchestration_recovery_falsifier",
+      "agent_type": "harness_orchestration_recovery_falsifier",
+      "reviewer_agent_id": "019ee849-ad0b-76b2-97e5-4d07a81b1178",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "fresh_context": true,
+      "reused_reviewer": false,
+      "verdict": "SIGN_OFF",
+      "completed_at": "2026-06-21T03:58:00Z",
+      "persona_prompt_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/agents/orchestration-recovery-falsifier.md",
+      "persona_prompt_digest": "sha256:68cbd9772f705266e6d31c04ee7e97ecd1ea7c96fdf86f9c9dbc30466df4ca6a",
+      "custom_agent_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/custom-agents/harness-orchestration-recovery-falsifier.toml",
+      "custom_agent_digest": "sha256:9129358dc8b031996364673b98daabf0a893076d0a4c6db1bcd69e027027cdf5",
+      "material_blockers": []
+    },
+    {
+      "persona": "security_trust_boundary_falsifier",
+      "agent_type": "harness_security_trust_boundary_falsifier",
+      "reviewer_agent_id": "019ee849-b339-7b03-845f-b05e22ddc4e8",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "fresh_context": true,
+      "reused_reviewer": false,
+      "verdict": "SIGN_OFF",
+      "completed_at": "2026-06-21T04:02:00Z",
+      "persona_prompt_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/agents/security-trust-boundary-falsifier.md",
+      "persona_prompt_digest": "sha256:981818926ee5ed7ed27622ac4bab9a4961353e82d29ed660cbce29a25f7651b7",
+      "custom_agent_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/custom-agents/harness-security-trust-boundary-falsifier.toml",
+      "custom_agent_digest": "sha256:a104c737627e99ec79b5b0808b5dc3ead41d5f105b0b684ad23aebb5710019e6",
+      "material_blockers": []
+    },
+    {
+      "persona": "product_simplicity_falsifier",
+      "agent_type": "harness_product_simplicity_falsifier",
+      "reviewer_agent_id": "019ee849-b9ca-7411-86e4-71e0e4186a7e",
+      "model": "gpt-5.5",
+      "reasoning_effort": "high",
+      "fresh_context": true,
+      "reused_reviewer": false,
+      "verdict": "SIGN_OFF",
+      "completed_at": "2026-06-21T03:56:00Z",
+      "persona_prompt_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/agents/product-simplicity-falsifier.md",
+      "persona_prompt_digest": "sha256:00f2d4977534adf9565946ced5b13b9028cdf1616ea722968330fae51b700ab0",
+      "custom_agent_path": "/Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal/custom-agents/harness-product-simplicity-falsifier.toml",
+      "custom_agent_digest": "sha256:a2c5c0f3c5c3a04eaa773f8b6d2010d3210d3192e11852e2331785305d28c27c",
+      "material_blockers": []
+    }
+  ],
+  "claim_ceiling": {
+    "supported": [
+      "Repo-local skill setup is standards-bound and Rust-gated.",
+      "2026-06-21 non-toy coordinated dogfood is recorded as partial evidence.",
+      "Mac default microphone selection avoided iPhone and used MacBook Pro Microphone in the live run.",
+      "Dogfood receipt and review contract both require operator review."
+    ],
+    "unsupported": [
+      "CLAIM-008 through CLAIM-013 remain lane_owed.",
+      "Full recorder/transcription integration completion is not proven.",
+      "Generated artifacts are not shareable without operator review.",
+      "Monotonic drift proof is still owed.",
+      "Review UI/product-cohesion proof is still owed.",
+      "Replay-time voice execution is not proven.",
+      "Production readiness is not proven."
+    ]
+  }
+}

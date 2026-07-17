@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+root="$(mktemp -d "${TMPDIR:-/tmp}/nrr-package-sync-test.XXXXXX")"
+cleanup() {
+  rm -rf "${root}"
+}
+trap cleanup EXIT
+
+mkdir -p "${root}/source/dir" "${root}/dest/dir"
+printf 'same\n' > "${root}/source/dir/file.txt"
+printf 'same\n' > "${root}/dest/dir/file.txt"
+touch -t 202001010000 "${root}/source/dir"
+touch -t 202201010000 "${root}/dest/dir"
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+plan="$(rsync -aniO --delete "${root}/source/" "${root}/dest/")"
+if [[ -n "${plan}" ]]; then
+  echo "timestamp-only directory drift should not produce package sync plan" >&2
+  echo "${plan}" >&2
+  exit 1
+fi
+
+printf 'drift\n' > "${root}/dest/dir/file.txt"
+plan="$(rsync -aniO --delete "${root}/source/" "${root}/dest/")"
+if [[ -z "${plan}" ]]; then
+  echo "real file drift should produce package sync plan" >&2
+  exit 1
+fi
+
+bash -n "${script_dir}/check-package-sync"
+echo "harness-check:package-sync-test pass"

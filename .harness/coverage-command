@@ -1,0 +1,1 @@
+CARGO_TARGET_DIR=${CARGO_TARGET_DIR:-/private/tmp/narrated-record-replay-cargo-target-coverage} scripts/check-coverage

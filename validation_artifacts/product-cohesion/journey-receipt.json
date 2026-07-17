@@ -1,0 +1,123 @@
+{
+  "schema": "harness-ultragoal.product-cohesion-receipt.v1",
+  "product_surface_id": "narrated-record-replay-plugin-suite",
+  "change_intent": "Prove the narrated Record & Replay plugin suite has a coherent capture-first journey before live dogfood claims are made.",
+  "primary_user": "Codex agent operating for Tree or a narrated plugin user",
+  "user_job": "Start a narrated capture without form-style intake, then let the agent infer the target task from aligned replay evidence and narration.",
+  "product_promise": "The plugin captures first, keeps private audio and transcript data local, and routes to the right narrated workflow only after packet review.",
+  "business_or_user_outcome": "Users can show and narrate agent work without losing timing context or being interrupted before the recording teaches the task.",
+  "primary_journey": {
+    "id": "capture-first-to-routed-work",
+    "start": "User invokes the core narrated plugin or a companion narrated skill.",
+    "end": "Agent has a claim-bounded packet review and either proceeds with the inferred task or asks a targeted post-review question.",
+    "steps": [
+      {
+        "surface": "plugin invocation",
+        "user_action": "Invoke narrated Record & Replay or a companion narrated skill.",
+        "system_response": "Starts the capture-first path and does not ask target, output, duration, or microphone intake questions before recording.",
+        "engine_truth": "Skill contracts and the local gate enforce capture-first and no pre-recording intake behavior.",
+        "evidence": {
+          "path": "validation_artifacts/product-cohesion/capture-first-skill-evidence.txt",
+          "digest": "sha256:06b695f2e7fa3fd95663fe70cd82afac133402ac0d11b7787d1c7680507cda50"
+        }
+      },
+      {
+        "surface": "packet review",
+        "user_action": "Finish recording and let the agent inspect generated packet artifacts.",
+        "system_response": "Uses aligned final transcript, timing artifacts, Record & Replay events, privacy boundaries, and mismatch warnings before choosing the workflow.",
+        "engine_truth": "Transcript text is intent context; Record & Replay events remain the action evidence surface.",
+        "evidence": {
+          "path": "validation_artifacts/product-cohesion/alignment-review-evidence.txt",
+          "digest": "sha256:f1dfc978eda1766eae7250f6b68147bc4c7e770e3e075f43ab3a055f79cab14c"
+        }
+      }
+    ]
+  },
+  "surface_map": [
+    {
+      "surface": "core narrated-record-replay skill",
+      "role": "General gateway that starts capture first and routes after packet review.",
+      "state_coverage": [
+        "idle",
+        "capture prepared",
+        "packet review needed"
+      ]
+    },
+    {
+      "surface": "companion narrated skills",
+      "role": "Task-specific guidance for feature implementation, workflow capture, bug report, and review debrief after capture.",
+      "state_coverage": [
+        "capture first",
+        "post-review plan",
+        "claim-bounded output"
+      ]
+    }
+  ],
+  "human_attention_policy": {
+    "expected_interruption_rate": "rare",
+    "allowed_reasons": [
+      "raw_artifact_export",
+      "secrets_or_external_sharing",
+      "ambiguous_target_after_packet_review",
+      "unsupported_proof_claim"
+    ],
+    "automation_expectation": "The agent should start bounded capture, inspect artifacts, classify route, and use confidence/mismatch evidence before asking the user.",
+    "overuse_risk": "If the plugin asks target/output/duration questions before recording, the product journey has failed even if the helper can record.",
+    "exhausted_harness_paths": [
+      {
+        "path": "validation_artifacts/product-cohesion/exhausted-harness-paths.json",
+        "digest": "sha256:3597a8bb1875363a0f8eccb2611a5a375dad1e4ca26493395c6a38a6ed7d7860"
+      }
+    ]
+  },
+  "proof": {
+    "ui_evidence": [
+      {
+        "path": "validation_artifacts/product-cohesion/capture-first-skill-evidence.txt",
+        "digest": "sha256:06b695f2e7fa3fd95663fe70cd82afac133402ac0d11b7787d1c7680507cda50"
+      }
+    ],
+    "runtime_evidence": [
+      {
+        "path": "validation_artifacts/product-cohesion/runtime-route.json",
+        "digest": "sha256:5d10b2b191ce21bdcdea331adba6f931bac7287e369f4188cae3b77cd8b0c5c6"
+      }
+    ],
+    "accessibility_evidence": [
+      {
+        "path": "validation_artifacts/product-cohesion/a11y-summary.json",
+        "digest": "sha256:5a5d18e16d88f3fb8386a0beb28b5c550e3f58600908448a47b463146611127f"
+      }
+    ]
+  },
+  "claim_ceiling": {
+    "supported": [
+      "static product cohesion and package routing for the capture-first plugin suite"
+    ],
+    "withheld": [
+      "live capture success",
+      "operator-confirmed transcript/video alignment",
+      "production launch readiness"
+    ],
+    "rationale": "This receipt proves static journey coherence and local gate coverage only. Live dogfood remains the proof surface for runtime claims."
+  },
+  "review": {
+    "method": "same-round four-person harness review plus deterministic target-repo receipt audit",
+    "reviewers": [
+      "harness-contract-claim-falsifier",
+      "harness-orchestration-recovery-falsifier",
+      "harness-security-trust-boundary-falsifier",
+      "harness-product-simplicity-falsifier"
+    ],
+    "signoff_status": "pass",
+    "reviewer_authority": {
+      "actor_disjoint": true,
+      "authority": "same_round_harness_review",
+      "evidence": {
+        "path": "validation_artifacts/product-cohesion/review-signoff.json",
+        "digest": "sha256:6428273dc0dd9f737b1d19af49abae1ee2f29586b5ccbd9ce26768ac4a235722"
+      }
+    }
+  },
+  "generated_at": "2026-06-24T03:05:00Z"
+}

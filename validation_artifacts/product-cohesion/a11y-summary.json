@@ -1,0 +1,7 @@
+{
+  "schema": "narrated-record-replay.static-accessibility-summary.v1",
+  "status": "pass",
+  "surface": "skill contracts and review artifacts",
+  "summary": "The static contract path avoids modal pre-intake and keeps interruption reasons explicit.",
+  "claim_ceiling": "static contract accessibility only"
+}

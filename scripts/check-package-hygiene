@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "$#" -eq 0 ]]; then
+  echo "usage: check-package-hygiene <installed-plugin-or-cache-package-root>..." >&2
+  echo "note: the repo-local source skill root may contain source-only setup state such as .codex-worktree; package roots must not" >&2
+  exit 2
+fi
+
+status=0
+
+for root in "$@"; do
+  if [[ ! -d "${root}" ]]; then
+    echo "package root is not a directory: ${root}" >&2
+    status=1
+    continue
+  fi
+
+  root_status=0
+  while IFS= read -r path; do
+    echo "disallowed package symlink: ${path}" >&2
+    root_status=1
+  done < <(find "${root}" -type l -print)
+
+  while IFS= read -r path; do
+    echo "disallowed non-regular package entry: ${path}" >&2
+    root_status=1
+  done < <(find "${root}" ! -type f ! -type d ! -type l -print)
+
+  if [[ "${root_status}" -ne 0 ]]; then
+    status=1
+    continue
+  fi
+
+  while IFS= read -r path; do
+    echo "disallowed package path: ${path}" >&2
+    status=1
+  done < <(
+    find "${root}" \
+      \( \
+        -name '.git' -o \
+        -name '.codex-worktree' -o \
+        -name 'validation_artifacts' -o \
+        -name 'COMPLETION_MANIFEST.json' -o \
+        -name 'VERIFICATION_BACKLOG.json' -o \
+        -name 'LANE_REGISTRY.json' -o \
+        -name 'AMENDMENTS.jsonl' -o \
+        -name 'QUALITY_SCORE.md' -o \
+        -name 'target' -o \
+        -name 'cargo-target' -o \
+        -name 'retained-audio.wav' -o \
+        -name 'audio-retention.json' -o \
+        -name 'transcript.timeline.jsonl' -o \
+        -name 'transcript.events.jsonl' -o \
+        -name 'transcript.final.txt' -o \
+        -name 'transcript.live.txt' -o \
+        -name 'audio-chunks.jsonl' -o \
+        -name 'narration.sync.jsonl' -o \
+        -name 'batch-transcript.json' -o \
+        -name 'batch-transcription-receipt.json' -o \
+        -name 'cleaned-transcript.json' -o \
+        -name 'cleanup-receipt.json' -o \
+        -name 'final-transcript-alignment.json' -o \
+        -name 'final-transcript.timeline.jsonl' -o \
+        -name 'delay-evaluation.json' -o \
+        -name 'delay-comparison.json' -o \
+        -name 'dogfood-receipt.json' -o \
+        -name '*.wav' \
+      \) -print
+  )
+  if grep -R -E 'OPENAI_API_KEY[[:space:]]+present|event_stream/[0-9A-Fa-f-]{36}' "${root}" >/dev/null; then
+    echo "disallowed private proof text in package root: ${root}" >&2
+    status=1
+  fi
+done
+
+exit "${status}"

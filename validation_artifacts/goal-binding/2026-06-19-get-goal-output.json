@@ -1,0 +1,13 @@
+{
+  "goal": {
+    "threadId": "019ede5b-484c-7511-b665-ceab75f43765",
+    "objective": "Carry out the narrated Record & Replay ultragoal defined in /Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay/GOAL_CONTRACT.md, using /Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal as the process authority, and complete only after the contract's required claims have fresh named verification evidence.",
+    "status": "active",
+    "createdAt": 1781847695,
+    "updatedAt": 1781848441
+  },
+  "remainingTokens": null,
+  "completionBudgetReport": null,
+  "observed_at": "2026-06-19T06:01:07Z",
+  "note": "Sanitized current-thread get_goal output. Token and elapsed-time counters are intentionally excluded because they drift during active work."
+}

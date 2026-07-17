@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+standards="${skill_dir}/AGENT_STANDARDS.md"
+enforcement_json="${NRR_ENFORCEMENT_JSON_OVERRIDE:-${skill_dir}/agent-standards/enforcement.json}"
+modules=(
+  "01-namespace-and-progressive-disclosure.md"
+  "02-boundaries-validation-and-enforcement.md"
+  "03-execplans-worktrees-and-orchestration.md"
+  "04-security-reliability-and-product-cohesion.md"
+  "05-review-and-completion.md"
+  "06-standards-gardening.md"
+)
+
+for path in \
+  "${standards}" \
+  "${skill_dir}/agent-standards/enforcement.tsv" \
+  "${skill_dir}/agent-standards/enforcement-audit.tsv" \
+  "${enforcement_json}" \
+  "${skill_dir}/scripts/check-agent-standards-rowset"; do
+  test -f "${path}" || {
+    echo "missing standards surface: ${path}" >&2
+    exit 1
+  }
+done
+
+grep -q 'Treat it and every routed `agent-standards/` module as law' \
+  "${standards}" || {
+    echo "standards router must bind routed modules as law" >&2
+    exit 1
+  }
+
+for module in "${modules[@]}"; do
+  path="${skill_dir}/agent-standards/${module}"
+  test -f "${path}" || {
+    echo "missing routed standards module: ${path}" >&2
+    exit 1
+  }
+  grep -q "agent-standards/${module}" "${standards}" || {
+    echo "standards router does not route module: ${module}" >&2
+    exit 1
+  }
+done
+
+bash "${skill_dir}/scripts/check-agent-standards-rowset" "${skill_dir}"
+
+grep -q 'scripts/check' "${standards}" || {
+  echo "standards router must name scripts/check as validation gate" >&2
+  exit 1
+}
+
+grep -qi 'documentation freshness' \
+  "${skill_dir}/agent-standards/01-namespace-and-progressive-disclosure.md" || {
+    echo "namespace standards must include documentation freshness law" >&2
+    exit 1
+  }
+
+grep -q 'Coverage And Test Law' \
+  "${skill_dir}/agent-standards/02-boundaries-validation-and-enforcement.md" || {
+    echo "boundary standards must include coverage law" >&2
+    exit 1
+  }
+
+for required_law in \
+  'documentation freshness' \
+  'Coverage claims require' \
+  'coverage scope' \
+  'Product Fitness' \
+  'Product Cohesion' \
+  'PLANS.md' \
+  'orchestration'; do
+  grep -Rqi "${required_law}" \
+    "${skill_dir}/agent-standards" \
+    "${skill_dir}/agent-standards/enforcement.tsv" \
+    "${skill_dir}/agent-standards/enforcement-audit.tsv" || {
+      echo "standards enforcement missing Harness 0.0.10 concept: ${required_law}" >&2
+      exit 1
+    }
+done
+
+grep -Eq '"schema"[[:space:]]*:[[:space:]]*"narrated-record-replay\.agent-standards-enforcement\.v1"' \
+  "${enforcement_json}" || {
+    echo "standards enforcement json has wrong schema" >&2
+    exit 1
+  }
+
+check_script="${skill_dir}/scripts/check"
+for script in \
+  "audit-private-run-permissions" \
+  "check-agent-standards" \
+  "check-coverage" \
+  "check-coverage-fast" \
+  "check-coverage-full" \
+  "check-coverage-policy" \
+  "check-line-cap" \
+  "check-product-fitness" \
+  "check-skill-contracts" \
+  "test-package-sync"; do
+  grep -q "scripts/${script}" "${check_script}" || {
+    echo "scripts/check does not invoke standards gate: ${script}" >&2
+    exit 1
+  }
+done
+
+test -x "${skill_dir}/scripts/check-package-sync" || {
+  echo "missing executable package sync gate: scripts/check-package-sync" >&2
+  exit 1
+}
+
+echo "harness-check:agent-standards pass"

@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+repo_root="$(cd "${skill_dir}/../../.." && pwd)"
+manifest="${skill_dir}/Cargo.toml"
+
+export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-/private/tmp/narrated-record-replay-cargo-target-check}"
+
+cd "${repo_root}"
+
+required_paths=(
+  "${skill_dir}/AGENTS.md"
+  "${skill_dir}/AGENT_STANDARDS.md"
+  "${skill_dir}/ARCHITECTURE.md"
+  "${skill_dir}/PLANS.md"
+  "${skill_dir}/DESIGN.md"
+  "${skill_dir}/FRONTEND.md"
+  "${skill_dir}/GOAL_CONTRACT.md"
+  "${skill_dir}/PRODUCT_FITNESS.md"
+  "${skill_dir}/PRODUCT_SENSE.md"
+  "${skill_dir}/COVERAGE_RECEIPT.json"
+  "${skill_dir}/RED_FIXTURES.json"
+  "${skill_dir}/RELIABILITY.md"
+  "${skill_dir}/SECURITY.md"
+  "${skill_dir}/docs/design-docs/index.md"
+  "${skill_dir}/docs/design-docs/core-beliefs.md"
+  "${skill_dir}/docs/exec-plans/active/LANE-001-parent-setup-and-contract.md"
+  "${skill_dir}/docs/exec-plans/tech-debt-tracker.md"
+  "${skill_dir}/docs/generated/index.md"
+  "${skill_dir}/docs/product-specs/index.md"
+  "${skill_dir}/docs/product-cohesion.md"
+  "${skill_dir}/docs/references/index.md"
+  "${skill_dir}/docs/runtime.md"
+  "${skill_dir}/scripts/check-line-cap"
+  "${skill_dir}/scripts/check-agent-standards"
+  "${skill_dir}/scripts/check-coverage-fast"
+  "${skill_dir}/scripts/check-coverage-full"
+  "${skill_dir}/scripts/check-product-fitness"
+  "${skill_dir}/scripts/check-skill-contracts"
+  "${skill_dir}/.harness/coverage-manifest.json"
+)
+
+if [[ -e "${skill_dir}/.codex-worktree/env.sh" ]]; then
+  required_paths+=(
+    "${skill_dir}/AMENDMENTS.jsonl"
+    "${skill_dir}/COMPLETION_MANIFEST.json"
+    "${skill_dir}/LANE_REGISTRY.json"
+    "${skill_dir}/QUALITY_SCORE.md"
+    "${skill_dir}/VERIFICATION_BACKLOG.json"
+    "${skill_dir}/validation_artifacts/README.md"
+    "${skill_dir}/validation_artifacts/product-cohesion/journey-receipt.json"
+    "${skill_dir}/validation_artifacts/coverage/coverage-receipt.json"
+    "${skill_dir}/.codex/setup-worktree-env.sh"
+    "${skill_dir}/.codex/environments/environment.toml"
+  )
+fi
+
+for path in "${required_paths[@]}"; do
+  test -e "${path}"
+done
+echo "harness-check:baseline-files pass"
+echo "harness-check:execplan-dirs pass"
+echo "harness-check:proof-root pass"
+
+if [[ -e "${skill_dir}/target" || -e "${skill_dir}/cargo-target" ]]; then
+  echo "skill-local Cargo build output is not allowed; set CARGO_TARGET_DIR outside the skill directory" >&2
+  exit 1
+fi
+
+mkdir -p "${TMPDIR:-/tmp}"
+
+bundle_receipt_tmp="${TMPDIR:-/tmp}/narrated-record-replay-bundle-validation.$$.json"
+receipt_generated_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+receipt_run_id="local-rust-bundle-validation-${receipt_generated_at//[:]/-}-$$"
+if [[ -e "${skill_dir}/.codex-worktree/env.sh" ]]; then
+  bundle_error_tmp="${TMPDIR:-/tmp}/narrated-record-replay-bundle-validation.$$.stderr"
+  if ! cargo run --quiet --manifest-path "${manifest}" -- validate-bundle --skill-dir "${skill_dir}" --receipt-run-id "${receipt_run_id}" --receipt-generated-at "${receipt_generated_at}" > "${bundle_receipt_tmp}" 2> "${bundle_error_tmp}"; then
+    if grep -Fq "local validator receipt is stale" "${bundle_error_tmp}"; then
+      cargo run --quiet --manifest-path "${manifest}" -- refresh-bundle-receipt --skill-dir "${skill_dir}" --receipt-run-id "${receipt_run_id}" > "${bundle_receipt_tmp}"
+      cargo run --quiet --manifest-path "${manifest}" -- validate-bundle --skill-dir "${skill_dir}" --receipt-run-id "${receipt_run_id}" > "${bundle_receipt_tmp}"
+    else
+      cat "${bundle_error_tmp}" >&2
+      exit 1
+    fi
+  fi
+fi
+bash "${skill_dir}/scripts/audit-private-run-permissions"
+bash "${skill_dir}/scripts/check-agent-standards"
+bash "${skill_dir}/scripts/check-coverage-fast"
+bash "${skill_dir}/scripts/check-product-fitness"
+bash "${skill_dir}/scripts/check-line-cap"
+bash "${skill_dir}/scripts/check-skill-contracts"
+bash "${skill_dir}/scripts/test-package-sync"
+echo "harness-check:product-cohesion pass"
+
+bash -n "${skill_dir}/scripts/check"
+bash -n "${skill_dir}/scripts/audit-private-run-permissions"
+bash -n "${skill_dir}/scripts/check-agent-standards"
+bash -n "${skill_dir}/scripts/check-coverage"
+bash -n "${skill_dir}/scripts/check-coverage-fast"
+bash -n "${skill_dir}/scripts/check-coverage-full"
+bash -n "${skill_dir}/scripts/check-coverage-policy"
+bash -n "${skill_dir}/scripts/check-product-fitness"
+bash -n "${skill_dir}/scripts/check-package-hygiene"
+bash -n "${skill_dir}/scripts/check-line-cap"
+bash -n "${skill_dir}/scripts/check-skill-contracts"
+bash -n "${skill_dir}/scripts/test-package-sync"
+if [[ -e "${skill_dir}/.codex/setup-worktree-env.sh" ]]; then
+  bash -n "${skill_dir}/.codex/setup-worktree-env.sh"
+fi
+cargo fmt --manifest-path "${manifest}" -- --check
+cargo test --manifest-path "${manifest}" -- --test-threads=1
+cargo run --quiet --manifest-path "${manifest}" -- validate --json > "${TMPDIR:-/tmp}/narrated-record-replay-validate.json"
+if cargo run --quiet --manifest-path "${manifest}" -- unknown-command > "${TMPDIR:-/tmp}/narrated-record-replay-unknown-command.stdout" 2> "${TMPDIR:-/tmp}/narrated-record-replay-unknown-command.stderr"; then
+  echo "unknown command unexpectedly succeeded" >&2
+  exit 1
+fi
+
+bash "${skill_dir}/scripts/check-coverage-full"

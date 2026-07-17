@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+receipt="${skill_dir}/validation_artifacts/harness/product-fitness-receipt.json"
+
+test -f "${skill_dir}/PRODUCT_FITNESS.md"
+test -f "${receipt}"
+
+schema="$(jq -r '.schema' "${receipt}")"
+ceiling="$(jq -r '.claim_ceiling' "${receipt}")"
+status="$(jq -r '.status // "unknown"' "${receipt}")"
+
+if [[ "${schema}" != "harness-ultragoal.product-fitness-receipt.v1" ]]; then
+  echo "product fitness receipt has wrong schema: ${schema}" >&2
+  exit 1
+fi
+
+if [[ "${status}" == "blocked" && "${ceiling}" != "withheld_or_blocked" ]]; then
+  echo "blocked product fitness receipt must withhold claim ceiling" >&2
+  exit 1
+fi
+
+echo "harness-check:product-fitness ${status}"

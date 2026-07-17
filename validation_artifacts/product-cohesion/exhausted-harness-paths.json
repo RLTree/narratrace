@@ -1,0 +1,11 @@
+{
+  "schema": "harness-ultragoal.exhausted-harness-paths.v1",
+  "status": "pass",
+  "paths": [
+    "capture-first skill routing",
+    "microphone input fallback policy",
+    "transcript/video alignment review",
+    "packet inspection blockers"
+  ],
+  "claim_ceiling": "static journey evidence only"
+}

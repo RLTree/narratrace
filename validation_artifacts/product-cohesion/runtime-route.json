@@ -1,0 +1,8 @@
+{
+  "schema": "narrated-record-replay.runtime-route.v1",
+  "status": "pass",
+  "route": "capture-first-then-classify",
+  "default_max_seconds": 1800,
+  "pre_recording_intake": false,
+  "claim_ceiling": "preflight and static routing only"
+}

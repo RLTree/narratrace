@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+manifest="${skill_dir}/Cargo.toml"
+
+export CARGO_TARGET_DIR="${CARGO_TARGET_DIR:-/private/tmp/narrated-record-replay-cargo-target-coverage}"
+
+if [[ -d "${skill_dir}/validation_artifacts" ]]; then
+  receipt_dir="${skill_dir}/validation_artifacts/coverage"
+  coverage_receipt="${receipt_dir}/coverage-receipt.json"
+  receipt_args=()
+else
+  receipt_dir="${TMPDIR:-/tmp}/narrated-record-replay-coverage-$$"
+  coverage_receipt="${receipt_dir}/coverage-receipt.json"
+  receipt_args=(--coverage-receipt "${coverage_receipt}" --i-consent-to-custom-runtime-paths)
+fi
+
+cargo run --quiet --manifest-path "${manifest}" -- \
+  coverage-receipt \
+  --skill-dir "${skill_dir}" \
+  "${receipt_args[@]}"
+cargo run --quiet --manifest-path "${manifest}" -- \
+  check-coverage-policy \
+  --skill-dir "${skill_dir}" \
+  "${receipt_args[@]}"
+
+percent="$(jq -r '.coverage.percent' "${coverage_receipt}")"
+policy="$(jq -r '.coverage.policy' "${coverage_receipt}")"
+if [[ "${policy}" != "100_percent_required" || "${percent}" != "100" && "${percent}" != "100.0" ]]; then
+  echo "coverage below required 100 percent: ${percent}% (${coverage_receipt})" >&2
+  exit 1
+fi

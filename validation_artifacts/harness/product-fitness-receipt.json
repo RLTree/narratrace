@@ -1,0 +1,19 @@
+{
+  "schema": "harness-ultragoal.product-fitness-receipt.v1",
+  "receipt_version": "blocked-placeholder",
+  "claim": {
+    "id": "PRODUCT-FITNESS-WITHHELD",
+    "title": "Narrated Record & Replay product fitness is not yet proven",
+    "repeated_use_claimed": false
+  },
+  "status": "blocked",
+  "owner": "root",
+  "reason": "Harness Ultragoal 0.0.10 requires Product Fitness proof separate from Product Cohesion. The repo has not yet produced a real audience/job/context/outcome quality-in-use receipt.",
+  "required_follow_up": [
+    "Define the concrete product claim and target audience.",
+    "Run or inspect real user evidence for the critical narrated capture journey.",
+    "Generate a schema-valid Product Fitness receipt with quality-in-use, accessibility, cognitive-load, recovery, and claim-ceiling evidence."
+  ],
+  "claim_ceiling": "withheld_or_blocked",
+  "generated_at": "2026-06-25T00:00:00Z"
+}

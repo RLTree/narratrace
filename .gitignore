@@ -1,0 +1,13 @@
+.codex-worktree/
+target/
+cargo-target/
+*.wav
+*.pcm
+*.jsonl
+!AMENDMENTS.jsonl
+retained-audio.*
+transcript.*.txt
+transcript.*.json
+batch-transcript.json
+cleaned-transcript.json
+final-transcript-alignment.json

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Narrated Workflow Capture"
+  short_description: "Turn narrated UI demos into workflows."
+  default_prompt: "Use $narrated-record-replay:narrated-workflow-capture to capture my demonstrated workflow and turn it into reusable agent instructions."
+policy:
+  allow_implicit_invocation: false

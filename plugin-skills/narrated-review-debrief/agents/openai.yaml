@@ -1,0 +1,6 @@
+interface:
+  display_name: "Narrated Review Debrief"
+  short_description: "Turn narrated reviews into action plans."
+  default_prompt: "Use $narrated-record-replay:narrated-review-debrief while I review this artifact and explain my acceptance criteria."
+policy:
+  allow_implicit_invocation: false

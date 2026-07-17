@@ -1,0 +1,777 @@
+{
+  "checks": {
+    "agent-surface": {
+      "detail": "repo-local skill surface",
+      "evidence": {
+        "digest": "sha256:dd62a14b4a1f948c6745a6717222df084bc26445b25a76510bfadf1b5fd101c6",
+        "path": ".codex/skills"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/design-docs": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:60da78722a2e46782a35134fd9a30da1e8aed229898ceecea0697a38e95da290",
+        "path": "docs/design-docs"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/exec-plans/active": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:d2c91cf671f9cd4f2db4ee1bc80246081abc48a8eac9255724aab577355562df",
+        "path": "docs/exec-plans/active"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/exec-plans/completed": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:dd62a14b4a1f948c6745a6717222df084bc26445b25a76510bfadf1b5fd101c6",
+        "path": "docs/exec-plans/completed"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/generated": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:a48746cae70c44e7e105b594aad338ddd105c93c1cb445a40ba6aab785ba69e5",
+        "path": "docs/generated"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/product-specs": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:a48746cae70c44e7e105b594aad338ddd105c93c1cb445a40ba6aab785ba69e5",
+        "path": "docs/product-specs"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:docs/references": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:a48746cae70c44e7e105b594aad338ddd105c93c1cb445a40ba6aab785ba69e5",
+        "path": "docs/references"
+      },
+      "status": "pass"
+    },
+    "baseline-dir:validation_artifacts": {
+      "detail": "required directory",
+      "evidence": {
+        "digest": "sha256:74e3ec3fdd8e4644e8203e5f49a6122cde999953babbfb1cf431c94b8970110d",
+        "path": "validation_artifacts"
+      },
+      "status": "pass"
+    },
+    "baseline-file:.codex/environments/environment.toml": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:779c66decaa4abf610d37a248fdb0aab67659084468559d91289faeadc844f7e",
+        "path": ".codex/environments/environment.toml"
+      },
+      "status": "pass"
+    },
+    "baseline-file:.codex/setup-worktree-env.sh": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:f1420fd9c5ce61bdd81bd267c2b3d2466d38dad32a16e4d1070a7567f19ffc91",
+        "path": ".codex/setup-worktree-env.sh"
+      },
+      "status": "pass"
+    },
+    "baseline-file:.gitignore": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:0000c14e14ac6c0fa6a49e1b60ee06be37e25dd24bfe4cd8af1510241bb6248a",
+        "path": ".gitignore"
+      },
+      "status": "pass"
+    },
+    "baseline-file:AGENTS.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:f8dbcf42a823327b2946e4f64bbbf662660aa2be6b7cb17c759a5bb3f9d727cc",
+        "path": "AGENTS.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:AGENT_STANDARDS.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:d541a3f59b3732de422958732f812330bfb70f5c28bebb1f34de2b80401632be",
+        "path": "AGENT_STANDARDS.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:ARCHITECTURE.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:cbe082011f89b9b37b542f1a11865fdc4c75783cb80ce6440be801b6424bcd24",
+        "path": "ARCHITECTURE.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:DESIGN.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:a9bd1712cd454007c8505014453037088d6d8856d9ff629dfe66da5429ae55d0",
+        "path": "DESIGN.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:FRONTEND.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:b2fe6c3111d1763c6652eadd4f397dd659a76a0f1bb6a4fa989afd6fd73e52a5",
+        "path": "FRONTEND.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:PLANS.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:07c2b613043faf77e832f728229f37fc7f08af5da73b389d6b7a75d61463d8ab",
+        "path": "PLANS.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:PRODUCT_SENSE.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:a2a199675ec99a15e1e1d5eaeca8f67d02d1071fc03a19134969ac79b456dfe4",
+        "path": "PRODUCT_SENSE.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:QUALITY_SCORE.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:7abeba419aa07c08e5a15bf1f3a0ab9c862971dd9bc4701a8ccd828eac649107",
+        "path": "QUALITY_SCORE.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:RELIABILITY.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:1739ae709856b6b6af8954ae4c72f5f29872d672b6a5ebfcae7b70775da16edf",
+        "path": "RELIABILITY.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:SECURITY.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:cf0fe83ae53cb3fc2ffe6db69b8120e4b9c4a51205f0d595a21013e51a02efdc",
+        "path": "SECURITY.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/design-docs/core-beliefs.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:85f16723f2ca4307b685f34b206b18ed393e6509f241beb6ee0358c057f24597",
+        "path": "docs/design-docs/core-beliefs.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/design-docs/index.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:c6b271bfa7a25bf7a913959047f821de98c459148393bbbb768bf38e79f0a78e",
+        "path": "docs/design-docs/index.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/exec-plans/tech-debt-tracker.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:186de4213dd6c280f5ea329c31047e2f7ceb6c8f0a9489a39e0311b6eecb5cac",
+        "path": "docs/exec-plans/tech-debt-tracker.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/generated/index.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:aac84008e788d8e21f77d795c4780d7df70652fe9b76f93a9abacdd90eef0330",
+        "path": "docs/generated/index.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/product-specs/index.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:74b0d59f5f412eeb5261a7f1663f36a94d83a3a22070b59dac4a0c2d12793d7c",
+        "path": "docs/product-specs/index.md"
+      },
+      "status": "pass"
+    },
+    "baseline-file:docs/references/index.md": {
+      "detail": "present and non-placeholder",
+      "evidence": {
+        "digest": "sha256:eea2709200150d0086edf4cc7fd919344038c051daf97c44ba9c01381bc5423d",
+        "path": "docs/references/index.md"
+      },
+      "status": "pass"
+    },
+    "check-gate": {
+      "detail": "scripts/check statically declared required markers: baseline-files,execplan-dirs,product-cohesion,proof-root; substantive_checks=false",
+      "evidence": {
+        "digest": "sha256:6170e4a3bc42b2344be03269865a90c93b24bf1029a9705894cb3679a163e113",
+        "path": "scripts/check"
+      },
+      "status": "fail"
+    },
+    "mode-provenance": {
+      "detail": "retrofit mode selected",
+      "evidence": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "path": "<none>"
+      },
+      "status": "pass"
+    },
+    "observability-stack": {
+      "detail": "observability not requested for runnable repo",
+      "evidence": {
+        "digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "path": "<none>"
+      },
+      "status": "not_applicable"
+    },
+    "product-cohesion": {
+      "detail": "product cohesion journey receipt complete",
+      "evidence": {
+        "digest": "sha256:a341385431e5c1997596e1458b1444967155c0c63540a448a4e35718a07adbed",
+        "path": "validation_artifacts/product-cohesion"
+      },
+      "status": "pass"
+    },
+    "retrofit-backlog": {
+      "detail": "retrofit blockers/backlog are explicit",
+      "evidence": {
+        "digest": "sha256:f29dc813ca46c985eba682b8639786afabaa1146591347467af122f3f9f27445",
+        "path": "VERIFICATION_BACKLOG.json"
+      },
+      "status": "pass"
+    },
+    "runtime-legibility": {
+      "detail": "runtime legibility surface present",
+      "evidence": {
+        "digest": "sha256:19f8c12c64a664f06327134cd6132588e4f0baa7faf8707fb1c6360affd1ffc1",
+        "path": "docs/runtime.md"
+      },
+      "status": "pass"
+    }
+  },
+  "command": {
+    "command": "static-read scripts/check",
+    "completed_at": "2026-06-24T03:01:52Z",
+    "cwd": "<target-repo>",
+    "exit": 1,
+    "id": "target-repo-check",
+    "started_at": "2026-06-24T03:01:52Z",
+    "stderr": {
+      "digest": "sha256:dd3445563a26754d56b548805c0d3102e51f90426ca0ed20f98244de7f054f4f",
+      "path": "<inline:stderr>"
+    },
+    "stdout": {
+      "digest": "sha256:1b9fd031983e25fdb563f8a39d915bc70c168c8ba03500a18b4d1d018b6375d0",
+      "path": "<inline:stdout>"
+    }
+  },
+  "gate_markers": [
+    "baseline-files",
+    "execplan-dirs",
+    "product-cohesion",
+    "proof-root"
+  ],
+  "generated_at": "2026-06-24T03:01:52Z",
+  "invocation": "ultragoal-validator --root . audit --target-repo <target-repo> --receipt <receipt>",
+  "mode": "retrofit",
+  "repo_fingerprint": "sha256:694197038bbd50fd3de9456237252918c48cbaab1997a13a2baee745b5678466",
+  "requirements": {
+    "observability_reason": "not_requested",
+    "observability_required": false,
+    "product_cohesion_reason": "requested",
+    "product_cohesion_required": true
+  },
+  "schema": "harness-ultragoal.target-repo-receipt.v1",
+  "status": "fail",
+  "target_repo": "<target-repo>",
+  "validator_artifacts": [
+    {
+      "digest": "sha256:ee05ce5f44fb7ce1e1544f585ac36d155367c58109be2c7b29f90b6fcbf6a1c8",
+      "path": "Cargo.lock"
+    },
+    {
+      "digest": "sha256:b8d083a304e1ff96717b16610ef9a0dd1cf3bfaaebd4d06d9f4320b045849f41",
+      "path": "Cargo.toml"
+    },
+    {
+      "digest": "sha256:cb4592f8bf77313789568b8061baf9801ce988de6b19b4093a444fd1af7ed7f8",
+      "path": "validator/Cargo.toml"
+    },
+    {
+      "digest": "sha256:1cb90902f5d919a32c27c300a3b0ae7b52cc8fa224e17d7c2c64c3e716a37229",
+      "path": "validator/src/archive.rs"
+    },
+    {
+      "digest": "sha256:639d6fd18b1ecb806656ae81c8e0769777dd07f6ffd0b8e59cc0b2209839a11c",
+      "path": "validator/src/archive_names.rs"
+    },
+    {
+      "digest": "sha256:7973d4a04a8cf7be28bb9dc3b83c65a66c043dbdd63f054fc112d2b73e57f1c6",
+      "path": "validator/src/archive_zip.rs"
+    },
+    {
+      "digest": "sha256:862b76d6fe03495e66d781c2844b1de9b860870e0c8b44f8288226c5988e4284",
+      "path": "validator/src/audit/artifacts.rs"
+    },
+    {
+      "digest": "sha256:a7484140c6d68e1d962c4d169d5ac9855473c7eaf083d622b7e721df0a4acfd8",
+      "path": "validator/src/audit/mod.rs"
+    },
+    {
+      "digest": "sha256:a1be8e839b597ad916a88b044f1c07c7c9ce46dd3705f8c7c375170c9e1bc776",
+      "path": "validator/src/audit/package_checks.rs"
+    },
+    {
+      "digest": "sha256:bd4569f8874b4bc25528f307eeb5eba5e9316a2beb23d08715f8f15de103e527",
+      "path": "validator/src/audit/package_outputs.rs"
+    },
+    {
+      "digest": "sha256:2acfbe0ae3c8f41ddff2891f1e0172eb9aa2bf506d174d14a63d5be0672c5bf6",
+      "path": "validator/src/audit/package_run.rs"
+    },
+    {
+      "digest": "sha256:e5198445429ebf828f929b0da72cb1c97d8843f0ea933a401df0baa86cdef2d2",
+      "path": "validator/src/audit/package_targets.rs"
+    },
+    {
+      "digest": "sha256:429495f31f0684f3b7cc95d24a0852f70ad3fce48dd41ba44e04e68d20dd75f9",
+      "path": "validator/src/audit/receipt.rs"
+    },
+    {
+      "digest": "sha256:505b9aefc93ca9950f374f5618af13654308becea4c660b9dd6df35b0760529b",
+      "path": "validator/src/audit/red_catalog.rs"
+    },
+    {
+      "digest": "sha256:0995fc0cc898282096d3e4495dba1e283bd335cf28205b42cbad119cc237822d",
+      "path": "validator/src/audit/red_identity.rs"
+    },
+    {
+      "digest": "sha256:1a6a55991cf8cbfcc44dd68380cb79525278db587634ab8efa4cef051d582957",
+      "path": "validator/src/audit/review_history.rs"
+    },
+    {
+      "digest": "sha256:eb7859726d2836c4f88f2874e2465f5ce7365d5b04aee5c1e131abb9724b0c9f",
+      "path": "validator/src/audit/source_obligations.rs"
+    },
+    {
+      "digest": "sha256:186c2c65a4ad0dc7999aae64015fa8a4ddbd0cddddf5fe7f3828345032f52d77",
+      "path": "validator/src/audit/standards_gardening.rs"
+    },
+    {
+      "digest": "sha256:e1ffb79cf03a10679153aeeff2757e0d3318e63ce5f1936754ab650f8a3c73d9",
+      "path": "validator/src/audit/text_guards.rs"
+    },
+    {
+      "digest": "sha256:5d42f3d67e317a64daf3ee49a8b6704ee5469a6e7499e2b96f9d90bca64370da",
+      "path": "validator/src/audit/text_guards/moving_values.rs"
+    },
+    {
+      "digest": "sha256:d87960b60d93f1b61edeaaf4da67be0f14cefedd80a94723d731ab158caf1ddb",
+      "path": "validator/src/audit/text_guards/stale_review.rs"
+    },
+    {
+      "digest": "sha256:5e306c8bc26bae9a7f062ebe912420eb4c7ebff42a7b729c8e51330ab495c870",
+      "path": "validator/src/audit_clock.rs"
+    },
+    {
+      "digest": "sha256:7dd19b88997749a1ed9dddcb9060dbc42a8c6e77123131a20a8070c538f6856a",
+      "path": "validator/src/audit_contract.rs"
+    },
+    {
+      "digest": "sha256:ad944215eb19a10839d8332b57eae50864221c07d965b352cbe39f18251b2655",
+      "path": "validator/src/claim_language.rs"
+    },
+    {
+      "digest": "sha256:6fbf8711375ba2a3602781e8068c47044566d4038715a188c81a8ccf690f0c8e",
+      "path": "validator/src/claim_language_product.rs"
+    },
+    {
+      "digest": "sha256:e62dacbfff24b78bdc731b0f90a8c01263645b8022857054670ccfdcc098a7ce",
+      "path": "validator/src/claim_semantics/automation_tick.rs"
+    },
+    {
+      "digest": "sha256:a2f2e49afab62289791b3a0505f29df517e21425ae8df98104030602d1f4de86",
+      "path": "validator/src/claim_semantics/backlog_policy.rs"
+    },
+    {
+      "digest": "sha256:2fddd4f5b15c40f1458196e588c15487ffe26a94d9349bb33cfcdc03dc7eeffb",
+      "path": "validator/src/claim_semantics/claim_evidence.rs"
+    },
+    {
+      "digest": "sha256:9fe792d7960a2a2629bae5438711dab52eb6d08887f9b267453cff0c3b134865",
+      "path": "validator/src/claim_semantics/claim_identity.rs"
+    },
+    {
+      "digest": "sha256:68ef61d33deecdc572c3d1345e0630c434c20176308b5dd519433237109fb007",
+      "path": "validator/src/claim_semantics/claim_proof.rs"
+    },
+    {
+      "digest": "sha256:9e76712e3ae78e8983107d29386fca254b7051ccd584dd662b41834e93b0d818",
+      "path": "validator/src/claim_semantics/claim_proof_text.rs"
+    },
+    {
+      "digest": "sha256:90f1ca60aacdefa524d9a6cdc09fa448fb23c2d6a2d600ccc9edef757eb62dd9",
+      "path": "validator/src/claim_semantics/dogfood_receipt.rs"
+    },
+    {
+      "digest": "sha256:f372a3123d283e3becb609113b1bc3f686af1e811a53fd43d0c6fb3302257fca",
+      "path": "validator/src/claim_semantics/json_patch.rs"
+    },
+    {
+      "digest": "sha256:8bac3f94a2755febe7c7aea2c1edc8bdc2e2be830c43c4e2ab32885981203ac5",
+      "path": "validator/src/claim_semantics/lane_actor_freshness.rs"
+    },
+    {
+      "digest": "sha256:a20f35263faa54e9ccd9d6c98da1252e5eaa3c3768b340fc315bbaa6d35b393d",
+      "path": "validator/src/claim_semantics/lane_dependency.rs"
+    },
+    {
+      "digest": "sha256:f948dbae1f7793ff8bd2bc8866bba18b22f30aeb7b941953c56d659af77ea1b7",
+      "path": "validator/src/claim_semantics/lane_isolation.rs"
+    },
+    {
+      "digest": "sha256:fb33b5c09b70818edbc8daa78297394c6c105d30046db74903a18ca3bce89ba0",
+      "path": "validator/src/claim_semantics/lane_paths.rs"
+    },
+    {
+      "digest": "sha256:e1127b3fdcd4cfc582c0368918c0a73ec60e6c67f405fffedfc753a30424534a",
+      "path": "validator/src/claim_semantics/lane_policy.rs"
+    },
+    {
+      "digest": "sha256:087726fecb079d67691eac9950a7df09eaf5121952c22b30fe4d7db7340dd0a8",
+      "path": "validator/src/claim_semantics/lane_root_scope.rs"
+    },
+    {
+      "digest": "sha256:0a391d2084ec01c42a64890abc3cec7bfff973d32913b41c244173321595e426",
+      "path": "validator/src/claim_semantics/lane_runtime_state.rs"
+    },
+    {
+      "digest": "sha256:a0806ca07ec376918ec83470cf5e786c6ec76d993a97acfb425f041093bfe0c0",
+      "path": "validator/src/claim_semantics/lane_status.rs"
+    },
+    {
+      "digest": "sha256:c568cb9379c7d3a9e03d977078c19a53842e67a02df4986bd620a5ec8b4a508b",
+      "path": "validator/src/claim_semantics/mod.rs"
+    },
+    {
+      "digest": "sha256:75dbd77a8a2ff25522cf8014a92d9fc451e240c8c14058e5b72d93debb4e448e",
+      "path": "validator/src/claim_semantics/plugin_policy.rs"
+    },
+    {
+      "digest": "sha256:3082b3d25a14b0b09cc3483f2a5cd1d574526068219072d857480eb9d3bba090",
+      "path": "validator/src/claim_semantics/product_cohesion.rs"
+    },
+    {
+      "digest": "sha256:5568cc7868e6ccf49fd7d809660adc64760a5eb77b0edfc5cffa313e71b670dc",
+      "path": "validator/src/claim_semantics/product_receipt_policy.rs"
+    },
+    {
+      "digest": "sha256:7a911e4fd527f641ea53e1789e8f14898d312e1c2192d009891a428960f77136",
+      "path": "validator/src/claim_semantics/product_text_policy.rs"
+    },
+    {
+      "digest": "sha256:875a97d5124abb02f629d5367332197580cfd72ae6c6b4a21461a31b56e5dddd",
+      "path": "validator/src/claim_semantics/promotion_receipt.rs"
+    },
+    {
+      "digest": "sha256:07732fd4aa5c6190a4fc7a218a7751385e929f9491c75d8b299d6c638b390564",
+      "path": "validator/src/claim_semantics/ready_join.rs"
+    },
+    {
+      "digest": "sha256:b7496f8f84ed75045cea5f7c3d8f917c1343b32bb8a34085e55c7158ba3e0017",
+      "path": "validator/src/claim_semantics/ready_receipt.rs"
+    },
+    {
+      "digest": "sha256:5af75ea9a9a43c26930e62ad4ac97a08ca086fefd61d4f54fbca818d2a1d35bc",
+      "path": "validator/src/claim_semantics/retired_reviewer_policy.rs"
+    },
+    {
+      "digest": "sha256:d12cd268bccf1a869a74b98b11b1573d911273d0464c4c0061c360dc4f9c9280",
+      "path": "validator/src/claim_semantics/semantic_receipt_gates.rs"
+    },
+    {
+      "digest": "sha256:b0756feebd7232322f31ccd1b553d72aeb5b1e0bcf4c2473448b90057464ca10",
+      "path": "validator/src/claim_semantics/semantic_receipt_loader.rs"
+    },
+    {
+      "digest": "sha256:36140473b13c88a9d552905f27cc3f976599f830ce998e87ab20a056bcd4f736",
+      "path": "validator/src/claim_semantics/semantic_receipt_policy.rs"
+    },
+    {
+      "digest": "sha256:63c8098ec50efa1f9f74224733b8f49d17a618c7ea2ab1f866f63e69d2ee8eb5",
+      "path": "validator/src/claim_semantics/semantic_receipt_provenance.rs"
+    },
+    {
+      "digest": "sha256:f2090bdddcd636d787714a025fb8defafb0f7ec5c5d2ae242e390ea685b26ad6",
+      "path": "validator/src/claim_semantics/semantic_receipt_text.rs"
+    },
+    {
+      "digest": "sha256:2dda2f2e2e0eb0976eaef7bb5a58b942372579a4440e5409f65ded571109bd06",
+      "path": "validator/src/claim_text.rs"
+    },
+    {
+      "digest": "sha256:1ae3ed9a831262e2ebfae8c1bfab3b4518bef903e15ba4efeca5d7af5bbb76a5",
+      "path": "validator/src/command_run.rs"
+    },
+    {
+      "digest": "sha256:7c38f190a9997892998b9127b326b067e439cfbfd27f598634f6b52bee7bafcd",
+      "path": "validator/src/digest.rs"
+    },
+    {
+      "digest": "sha256:b080a01e36be498d8f122270acd90a40138a174de8dac3c44666f4c3bd8596a0",
+      "path": "validator/src/json_boundary.rs"
+    },
+    {
+      "digest": "sha256:a1cb126948888af61eefd7514f18b1d9a8f941ed2963e077ef78e0bf61803000",
+      "path": "validator/src/main.rs"
+    },
+    {
+      "digest": "sha256:20b5a677c2020fff7b827814e0b730d2fa16637af17689bbc51dcc07327eaaaf",
+      "path": "validator/src/output_path.rs"
+    },
+    {
+      "digest": "sha256:ebb9ee24660196b7b2d07b295622635be47b40d70d8b9f0fac044f11556e9ae0",
+      "path": "validator/src/package.rs"
+    },
+    {
+      "digest": "sha256:39242187718c33b18a25da4e92de41c9d9645ad7510d4a111bd059ad8befe83c",
+      "path": "validator/src/package_artifact_refs.rs"
+    },
+    {
+      "digest": "sha256:b61884e5b91ff36b07a21da71fb4f46409acb83e45b1a42625d72f0294872a2e",
+      "path": "validator/src/package_inventory.rs"
+    },
+    {
+      "digest": "sha256:9dc1ed00d5bd3c1a96ce3513f1be8a67049d5ab870c6d17e6ba2deda3bba0195",
+      "path": "validator/src/package_inventory_closure.rs"
+    },
+    {
+      "digest": "sha256:6ef93d0ce36163bef16f0790f5d8b77d58c4fb0b4e2d5db11a05ccb2d4d422c4",
+      "path": "validator/src/package_resource_purpose.rs"
+    },
+    {
+      "digest": "sha256:3a2dfee7cf1f0c18a8fc3c25f7d6ad0f20f135ed236e1a9cab6081e228c0fa28",
+      "path": "validator/src/red_filesystem_fixtures.rs"
+    },
+    {
+      "digest": "sha256:e0cc5ba2d22dd4153b1fa0bbf089c2e73e32ac5944812bdc0c2494ace1bad2c0",
+      "path": "validator/src/red_fixture_bases.rs"
+    },
+    {
+      "digest": "sha256:130378cf0a42edebd0ffad314e933540b01a2a6d06ddd0d01f0f099acf9e767c",
+      "path": "validator/src/red_fixture_package.rs"
+    },
+    {
+      "digest": "sha256:550f4be9aa72e86cf21e3a631314af596b34ae7b439f58b842585e2d8ca3bd48",
+      "path": "validator/src/red_fixture_review_round.rs"
+    },
+    {
+      "digest": "sha256:b276d537bf4fba53333ebf7f09bd8e92842e75def4508b492ade0257b97f6be2",
+      "path": "validator/src/red_fixture_row.rs"
+    },
+    {
+      "digest": "sha256:54b56e85e5b4fafb9a591df7418c5589f022a704fbc428743b33546be4b9601c",
+      "path": "validator/src/red_fixture_schema.rs"
+    },
+    {
+      "digest": "sha256:e9a963e108aacd09b75f2b31287112fb0b5f01c42f338580f60f19755f462856",
+      "path": "validator/src/red_fixtures.rs"
+    },
+    {
+      "digest": "sha256:47b939a6938252b1bce25fed230b834ee0c8b784248a1a791ed4605afa97cf70",
+      "path": "validator/src/review_round.rs"
+    },
+    {
+      "digest": "sha256:5ba0f12610af91efcade7133776f091f16a23db8932b8d4c607396f5094ed354",
+      "path": "validator/src/review_round_anchor_sources.rs"
+    },
+    {
+      "digest": "sha256:dfcedb4eb6b5ac7c38c28d7771389097e294e62e6ef480f434d02613dc014b69",
+      "path": "validator/src/review_round_anchors.rs"
+    },
+    {
+      "digest": "sha256:c9466c1762dee21a05f0d9fa3b9b2e75bc4a563c52321084bb93e418117ca6b5",
+      "path": "validator/src/review_round_artifacts.rs"
+    },
+    {
+      "digest": "sha256:2fe18f00b92086746848ac841a8eff5a76ae3b3551a62806678f27ba22715534",
+      "path": "validator/src/review_round_claim_ceiling.rs"
+    },
+    {
+      "digest": "sha256:f0c383434a7e5c66d2696fa926d72569d19572aef8e08a24578efffb291cf4a3",
+      "path": "validator/src/review_round_config.rs"
+    },
+    {
+      "digest": "sha256:97e59c8a4fef675839558ed105c0e96c0f39c8f992311be626f64aba7c51a2d9",
+      "path": "validator/src/review_round_personas.rs"
+    },
+    {
+      "digest": "sha256:3adf3cd45825dd5c8febdf1d9dc3823f9a235e6661cf35202686ae3a8362a4bd",
+      "path": "validator/src/review_round_registry.rs"
+    },
+    {
+      "digest": "sha256:e8eb5813b963970addfc3b8aeb9064231c409cac87985bee5877b612d2338410",
+      "path": "validator/src/review_round_report.rs"
+    },
+    {
+      "digest": "sha256:a07bdab934a2e24dab9810a64199a663c7f8a288b405008f02e20ae93876efb7",
+      "path": "validator/src/review_round_row_policy.rs"
+    },
+    {
+      "digest": "sha256:93d42e422d171b87b8942b88861c318c058d288d2733bc67d99c07fac2c27516",
+      "path": "validator/src/review_round_spawn_receipts.rs"
+    },
+    {
+      "digest": "sha256:868e4bc235d92901a0bfd7d7e10025efcdbf0a0bab543fb36ff170e9222b9744",
+      "path": "validator/src/schema_catalog/catalog_refs.rs"
+    },
+    {
+      "digest": "sha256:97b232076716c6b174f73eb1195cffa4e61881047c1bb94b653a1439bae25e9e",
+      "path": "validator/src/schema_catalog/fixture_schema_rules.rs"
+    },
+    {
+      "digest": "sha256:f83fd129a61cb4c75ac9ecf2fa7fefb3903c73dc88135fb1cb5501b2b4fe4ccf",
+      "path": "validator/src/schema_catalog/mod.rs"
+    },
+    {
+      "digest": "sha256:4c15683000a826a42cfac513ceb713fca736b6aef3b1f37e0f65bd16fd8625b7",
+      "path": "validator/src/schema_catalog/product_cohesion_rules.rs"
+    },
+    {
+      "digest": "sha256:a89291f295f48c5afb5fcfcfcb4803317352b3791ffa1432622dd1a7cc7cd5c3",
+      "path": "validator/src/schema_catalog/product_cohesion_value_rules.rs"
+    },
+    {
+      "digest": "sha256:dbc496941e25ea332e04258a904de9e258ecce36cf65a1ab9374616064ee49e8",
+      "path": "validator/src/schema_catalog/receipt_schema_rules.rs"
+    },
+    {
+      "digest": "sha256:6296fc25521086fa5b41b1bd49cdcdb3db83309c234a4141417f80195618b9a5",
+      "path": "validator/src/schema_catalog/schema_array_keywords.rs"
+    },
+    {
+      "digest": "sha256:556a9392bcc440c5ac9bcd62c348207e9003b71a19b804e0b191aade5e809740",
+      "path": "validator/src/schema_catalog/schema_keywords.rs"
+    },
+    {
+      "digest": "sha256:3613d473827f0ed2ddbddaee1e4adc17f70cd7c72d9a53e2ea4138a40a8a1fdc",
+      "path": "validator/src/schema_catalog/schema_object_keywords.rs"
+    },
+    {
+      "digest": "sha256:48ec09671cc13970b65a0b5f462a90bef5ed58c07c96d5b98e890ccacfb8ab38",
+      "path": "validator/src/schema_catalog/schema_patterns.rs"
+    },
+    {
+      "digest": "sha256:8a9ef3df7014fdfb1b660f018107bd115fd5ccfc659f8f17b440d914e90a5d55",
+      "path": "validator/src/schema_catalog/schema_scalar_keywords.rs"
+    },
+    {
+      "digest": "sha256:76ca46bc4f05701330e49e158044d0b869eed0cd7a2803a3d3e58435ea1a5989",
+      "path": "validator/src/schema_catalog/schema_supported_keywords.rs"
+    },
+    {
+      "digest": "sha256:3812ed359582bb86d0689030cdb657099ee346814f700c40fc933f286d44f913",
+      "path": "validator/src/semantic_receipt.rs"
+    },
+    {
+      "digest": "sha256:4782e77f009eac1693d9215d28bc2e2026c0fc2d511c339f859a13a30ef4a50d",
+      "path": "validator/src/semantic_receipt_classifier.rs"
+    },
+    {
+      "digest": "sha256:f507170f421876261c0ce73c5309623fee7576707a0c75ceb2d3503714de40c4",
+      "path": "validator/src/semantic_receipt_tests.rs"
+    },
+    {
+      "digest": "sha256:5c41163f3fcbabdf3ed0d6ca88bcdbe8815d9be39c90f85b17c3180c034059a4",
+      "path": "validator/src/skill_links.rs"
+    },
+    {
+      "digest": "sha256:24d69f8f164f7fb5f5ae5b1ccf01f9ae8419ff0e24030f1495d39b09f4ce17a8",
+      "path": "validator/src/target_fixtures/baseline_specs.rs"
+    },
+    {
+      "digest": "sha256:f25b36a55478bfc5f280a43016309df128928d85abae0124538f59ebc817a861",
+      "path": "validator/src/target_fixtures/mod.rs"
+    },
+    {
+      "digest": "sha256:f041e60f6586596d5c9c6607a60b256ee1e5ce73ad42a276c7d85e56242446e4",
+      "path": "validator/src/target_fixtures/observability_specs.rs"
+    },
+    {
+      "digest": "sha256:6f97e194986da3e72651dede9de1f33f2465c17a7cc00f228c64914c0330850e",
+      "path": "validator/src/target_fixtures/product_cohesion_specs.rs"
+    },
+    {
+      "digest": "sha256:f060dd5cc0feb0ac5e1f1f9eeb6935baa9e4ae45ce8aac77845377ae23227aa3",
+      "path": "validator/src/target_fixtures/required_files.rs"
+    },
+    {
+      "digest": "sha256:311c4ab7988c349a7feb0161aef9499dc5faf92662271586271f4f74fa0a275c",
+      "path": "validator/src/target_fixtures/spec_catalog.rs"
+    },
+    {
+      "digest": "sha256:ffa239b9909c3f80e17da9f406fe87cc3fe94b4a25807be3489eea8100cf4645",
+      "path": "validator/src/target_fixtures/spec_model.rs"
+    },
+    {
+      "digest": "sha256:cb09a2d5190c9a492d5ef3237ec8e2dc49b8f123a5b27c989b064bf1697d26c6",
+      "path": "validator/src/target_repo/artifact_refs.rs"
+    },
+    {
+      "digest": "sha256:2206fd68e49f323461de5d5e75ca3bc2e675d502b7e8dabd752039912dbbff88",
+      "path": "validator/src/target_repo/baseline.rs"
+    },
+    {
+      "digest": "sha256:063ddc7ab4fae2ba83a5facbd8d512a944e745d5f0f04d3be269135290b43953",
+      "path": "validator/src/target_repo/baseline_mode.rs"
+    },
+    {
+      "digest": "sha256:85b77086d918ad6607e62443d3a81501266a3f59da7896e2d330208f9a30d2c5",
+      "path": "validator/src/target_repo/check_gate.rs"
+    },
+    {
+      "digest": "sha256:6a88f83d8a37b30f9578d6bf3a9e4398a17b688b91ea2f3e0128e85e48f989f8",
+      "path": "validator/src/target_repo/mod.rs"
+    },
+    {
+      "digest": "sha256:b34a2b5310109c27a3325fe24aea67a01934619eb2facf6a9784aa1cf26ee2d8",
+      "path": "validator/src/target_repo/observability.rs"
+    },
+    {
+      "digest": "sha256:c744fb7c4df3ac8ec3e09cdeab1f4c1c0c6b8958ba70946b02409a5eb544d91a",
+      "path": "validator/src/target_repo/product_cohesion.rs"
+    },
+    {
+      "digest": "sha256:b8880c57951d07fc163db417d9c354ea5865f0de36038ff6ffb4b183e362c454",
+      "path": "validator/src/target_repo/product_review.rs"
+    },
+    {
+      "digest": "sha256:815339c51547c1fbfd2755a1865636cc4a633135e2e1286d78ebb18b4f748580",
+      "path": "validator/src/target_repo/receipt.rs"
+    },
+    {
+      "digest": "sha256:71dbf9783296fa6763656ef1005be920b3aed21bca4112fd62643a60ddea63a6",
+      "path": "validator/src/target_repo/safe_fs.rs"
+    },
+    {
+      "digest": "sha256:d474569c61e135bc904e6446c6a1697b01fae223fc26c7aa5e56eb9ba5d04081",
+      "path": "validator/src/target_repo/worktree_env_contract.rs"
+    }
+  ]
+}

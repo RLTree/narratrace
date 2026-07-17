@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+skill_dir="$(cd "${script_dir}/.." && pwd)"
+
+companion_names=(
+  narrated-bug-report
+  narrated-feature-implementation
+  narrated-review-debrief
+  narrated-workflow-capture
+)
+
+if [[ -d "${skill_dir}/plugin-skills" ]]; then
+  companion_root="${skill_dir}/plugin-skills"
+else
+  companion_root="$(cd "${skill_dir}/.." && pwd)"
+fi
+
+skill_files=("${skill_dir}/SKILL.md")
+for name in "${companion_names[@]}"; do
+  path="${companion_root}/${name}/SKILL.md"
+  test -f "${path}" || {
+    echo "missing companion skill contract: ${path}" >&2
+    exit 1
+  }
+  skill_files+=("${path}")
+done
+
+for file in "${skill_files[@]}"; do
+  if grep -Eq 'harness-ultragoal|harness plugin|ultragoal plugin' "${file}"; then
+    echo "user-facing skill leaks harness process reference: ${file}" >&2
+    exit 1
+  fi
+  grep -q 'microphone-input-policy.md' "${file}" || {
+    echo "skill is missing microphone input policy routing: ${file}" >&2
+    exit 1
+  }
+  grep -q 'transcript-video-alignment.md' "${file}" || {
+    echo "skill is missing transcript/video alignment routing: ${file}" >&2
+    exit 1
+  }
+done
+
+grep -q 'capture first' "${skill_dir}/SKILL.md" || {
+  echo "core skill must require capture first: ${skill_dir}/SKILL.md" >&2
+  exit 1
+}
+for name in "${companion_names[@]}"; do
+  grep -q 'Do not ask pre-recording intake questions' \
+    "${companion_root}/${name}/SKILL.md" || {
+      echo "companion skill allows pre-recording intake: ${companion_root}/${name}/SKILL.md" >&2
+      exit 1
+    }
+done
+
+if [[ -e "${skill_dir}/validation_artifacts/product-cohesion/journey-receipt.json" ]]; then
+  grep -q '"schema": "harness-ultragoal.product-cohesion-receipt.v1"' \
+    "${skill_dir}/validation_artifacts/product-cohesion/journey-receipt.json" || {
+      echo "product-cohesion receipt schema missing or wrong" >&2
+      exit 1
+    }
+else
+  grep -q 'Capture first' "${skill_dir}/docs/product-cohesion.md" || {
+    echo "packaged product cohesion doc must preserve capture-first rule" >&2
+    exit 1
+  }
+fi
+
+echo "harness-check:product-cohesion pass"

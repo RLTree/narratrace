@@ -1,0 +1,11 @@
+{
+  "tool_name": "get_goal",
+  "thread_id": "019ede5b-484c-7511-b665-ceab75f43765",
+  "workspace": "/Users/terrynoblin/personal-monorepo",
+  "observed_goal_id": "019ede5b-484c-7511-b665-ceab75f43765",
+  "observed_status": "active",
+  "observed_objective": "Carry out the narrated Record & Replay ultragoal defined in /Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay/GOAL_CONTRACT.md, using /Users/terrynoblin/Projects/harness-ultragoal-plugin-proposal as the process authority, and complete only after the contract's required claims have fresh named verification evidence.",
+  "observed_contract_path": "/Users/terrynoblin/personal-monorepo/.codex/skills/narrated-record-replay/GOAL_CONTRACT.md",
+  "observed_at": "2026-06-21T00:40:01Z",
+  "claim_ceiling": "current parent-thread goal binding receipt only; subagent goal tools can return null and do not supersede this parent-thread receipt"
+}

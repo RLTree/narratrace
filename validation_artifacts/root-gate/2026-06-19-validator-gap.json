@@ -1,0 +1,6 @@
+{
+  "observed_at": "2026-06-19T06:01:07Z",
+  "status": "blocked",
+  "reason": "The plugin-style bundle is being added to a repo-local skill directory before the full harness ultragoal plugin is installed as a callable validator. Local JSON/schema checks are available, but this receipt is not a passing ultragoal-audit receipt.",
+  "claim_ceiling": "Do not claim final completion, full recorder integration, redaction enforcement, UI review, or replay-time voice support from this receipt."
+}

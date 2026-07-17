@@ -1,0 +1,218 @@
+{
+  "schema": "harness-ultragoal.lane-registry.v1",
+  "goal_id": "narrated-record-replay",
+  "canonical_authority": "LANE_REGISTRY.json",
+  "lane_registration_policy": {
+    "status": "parent_lane_only_until_launch",
+    "rule": "When a backlog item becomes the next active implementation effort, register a concrete lane here before claiming ownership or completion.",
+    "reason": "Backlog text may describe future work, but active orchestration requires a lane id, owner, owned paths, proof surface, dependencies, and ready receipt."
+  },
+  "lanes": [
+    {
+      "id": "LANE-001",
+      "status": "active",
+      "lane_type": "parent_owned",
+      "lane_objective": "Maintain the narrated Record & Replay parent contract, local gate, claim ceiling, and proof reconciliation while feature implementation proceeds.",
+      "macro_lane_rationale": "The parent lane owns governance, proof infrastructure, and claim reconciliation; capability implementation claims remain blocked until their own runtime and product proof exists.",
+      "acceptance_scope": [
+        "Schema-compatible claim IDs and local aliases are recorded in GOAL_CONTRACT.md.",
+        "The plugin-required bundle files exist and are referenced by the check gate.",
+        "Future implementation claims remain visibly owed or withheld until proven with fresh receipts.",
+        "Local checks state their ceiling and do not substitute for full ultragoal-audit, live registry exposure, review-team sign-off, or live capability proof."
+      ],
+      "lane_size_evidence": {
+        "independent_outcome": "Future agents can resume from the skill directory and see authority, standards, claim IDs, backlog, proof roots, and validation gates.",
+        "owned_path_groups": [
+          ".codex/skills/narrated-record-replay/*.md",
+          ".codex/skills/narrated-record-replay/*.json",
+          ".codex/skills/narrated-record-replay/docs/**",
+          ".codex/skills/narrated-record-replay/validation_artifacts/**"
+        ],
+        "work_units": [
+          "Normalize claim IDs to the harness schema while preserving local aliases.",
+          "Add canonical bundle files and lane execplan.",
+          "Record current proof gaps and claim ceilings.",
+          "Wire setup bundle presence, digest freshness, permission hygiene, path containment, and proof-bound negative fixtures into scripts/check."
+        ],
+        "why_not_parent_inline": "The parent thread must keep future feature work blocked behind typed setup artifacts instead of chat-only notes.",
+        "why_not_smaller": "Splitting the bundle files would create a half-installed contract where future agents could miss claim ceilings."
+      },
+      "covered_claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002",
+        "CLAIM-003",
+        "CLAIM-004",
+        "CLAIM-005",
+        "CLAIM-006",
+        "CLAIM-007",
+        "CLAIM-008",
+        "CLAIM-009",
+        "CLAIM-010",
+        "CLAIM-011",
+        "CLAIM-012",
+        "CLAIM-013"
+      ],
+      "owner": "current setup thread",
+      "thread_or_session_id": "019ede5b-484c-7511-b665-ceab75f43765",
+      "actor_binding": {
+        "actor_id": "current-codex-agent",
+        "thread_or_session_id": "019ede5b-484c-7511-b665-ceab75f43765",
+        "launch_receipt": {
+          "path": ".codex/skills/narrated-record-replay/validation_artifacts/goal-binding/2026-06-21-get-goal-output.json",
+          "digest": "sha256:c5361c95054ec94124721f3404c379caad03524628ad414c790ac7bcd5772ca6"
+        },
+        "latest_heartbeat_receipt": {
+          "path": ".codex/skills/narrated-record-replay/validation_artifacts/root-gate/2026-06-21-rust-only-check.md",
+          "digest": "sha256:7b46beb8e4ae7359c5e59a54f6830b72d3f5575dc9b82fd7053a4b53728d9d32"
+        },
+        "actor_status": "current",
+        "validated_at": "2026-06-21T01:54:51Z"
+      },
+      "branch": "NO-GIT-BRANCH",
+      "workspace": "/Users/terrynoblin/personal-monorepo",
+      "execplan": ".codex/skills/narrated-record-replay/docs/exec-plans/active/LANE-001-parent-setup-and-contract.md",
+      "base_commit": "NO-GIT-20260619",
+      "current_commit": "NO-GIT-20260619",
+      "target_branch": "NO-GIT-TARGET",
+      "target_head_at_launch": "NO-GIT-20260619",
+      "target_head_at_validation": "NO-GIT-20260619",
+      "merge_base_at_validation": "NO-GIT-20260619",
+      "last_heartbeat": "2026-06-21T01:54:51Z",
+      "owned_paths": [
+        ".codex/skills/narrated-record-replay/**"
+      ],
+      "forbidden_paths": [
+        "/Users/terrynoblin/.codex/plugins/harness-ultragoal/**",
+        "raw private audio",
+        "raw private transcripts",
+        "secrets and credentials",
+        "unrelated workspace files"
+      ],
+      "state_roots": [
+        ".codex/skills/narrated-record-replay/validation_artifacts",
+        ".codex/skills/narrated-record-replay/.codex-worktree"
+      ],
+      "scratch_roots": [
+        ".codex/skills/narrated-record-replay/.codex-worktree/tmp",
+        "/private/tmp/narrated-record-replay-*"
+      ],
+      "tool_cache_roots": [
+        "/private/tmp/narrated-record-replay-cargo-target",
+        "/private/tmp/narrated-record-replay-cargo-target-check"
+      ],
+      "browser_profile_roots": [],
+      "artifact_root": ".codex/skills/narrated-record-replay/validation_artifacts",
+      "port_allocations": [],
+      "ready_receipt": {
+        "path": ".codex/skills/narrated-record-replay/validation_artifacts/setup/2026-06-19-canonical-bundle-setup.md",
+        "digest": "sha256:983220f75e7e5d9946d432737ffc34565285ccd76699b9be8856445d09047a35"
+      },
+      "claim_ids": [
+        "CLAIM-001",
+        "CLAIM-002",
+        "CLAIM-003",
+        "CLAIM-004",
+        "CLAIM-005",
+        "CLAIM-006",
+        "CLAIM-007",
+        "CLAIM-008",
+        "CLAIM-009",
+        "CLAIM-010",
+        "CLAIM-011",
+        "CLAIM-012",
+        "CLAIM-013"
+      ],
+      "dependencies": [],
+      "workspace_status": {
+        "clean": false,
+        "status_receipt": {
+          "path": ".codex/skills/narrated-record-replay/validation_artifacts/status/2026-06-19-workspace-status.md",
+          "digest": "sha256:f32f62f1f3427ee45e47fad4e6e25b96b85105254e1c431db1c7cf52be525e0a"
+        },
+        "status_command_receipt": {
+          "id": "CMD-001",
+          "command": "pwd && git status --short --branch",
+          "cwd": "/Users/terrynoblin/personal-monorepo",
+          "exit": 128,
+          "started_at": "2026-06-19T06:01:07Z",
+          "completed_at": "2026-06-19T06:01:07Z",
+          "artifact_path": ".codex/skills/narrated-record-replay/validation_artifacts/status/2026-06-19-workspace-status.md",
+          "artifact_digest": "sha256:f32f62f1f3427ee45e47fad4e6e25b96b85105254e1c431db1c7cf52be525e0a"
+        },
+        "observed_clean": false,
+        "observed_workspace": "/Users/terrynoblin/personal-monorepo",
+        "observed_branch": "NO-GIT-BRANCH",
+        "observed_head": "NO-GIT-20260619",
+        "dirty_paths": [
+          "git status unavailable: not a git repository"
+        ]
+      },
+      "teardown": {
+        "required": false,
+        "status": "not_ready",
+        "reason": "This lane creates durable skill-directory setup artifacts for continued implementation."
+      }
+    }
+  ],
+  "root_verification_phases": {
+    "pre_merge_lane_gate": {
+      "phase": "pre_merge_lane_gate",
+      "status": "pass",
+      "trigger": "Run after bundle files are added and scripts/check includes them.",
+      "owner": "current setup thread",
+      "required_inputs": [
+        "LANE_REGISTRY.json",
+        "VERIFICATION_BACKLOG.json",
+        "COMPLETION_MANIFEST.json",
+        "AMENDMENTS.jsonl",
+        "RED_FIXTURES.json",
+        "scripts/check"
+      ],
+      "command_receipt": {
+        "id": "CMD-LOCAL-RUST-GATE-20260621",
+        "command": ".codex/skills/narrated-record-replay/scripts/check",
+        "cwd": "/Users/terrynoblin/personal-monorepo",
+        "exit": 0,
+        "started_at": "2026-06-21T01:54:51Z",
+        "completed_at": "2026-06-21T01:54:51Z",
+        "artifact_path": ".codex/skills/narrated-record-replay/validation_artifacts/root-gate/2026-06-21-rust-only-check.md",
+        "artifact_digest": "sha256:7b46beb8e4ae7359c5e59a54f6830b72d3f5575dc9b82fd7053a4b53728d9d32"
+      },
+      "artifact_receipt": {
+        "path": ".codex/skills/narrated-record-replay/validation_artifacts/root-gate/2026-06-21-rust-only-check.md",
+        "digest": "sha256:7b46beb8e4ae7359c5e59a54f6830b72d3f5575dc9b82fd7053a4b53728d9d32"
+      },
+      "blocking": true,
+      "claim_ceiling_impact": "Setup gate passed; final completion still requires live capability evidence.",
+      "validated_at": "2026-06-21T01:54:51Z"
+    },
+    "post_merge_integration_gate": {
+      "phase": "post_merge_integration_gate",
+      "status": "blocked",
+      "trigger": "Requires a real Git repository or amended non-Git integration policy.",
+      "owner": "future root verifier",
+      "required_inputs": [
+        "Git target branch and merge-base receipts",
+        "ultragoal audit receipt"
+      ],
+      "blocking": true,
+      "claim_ceiling_impact": "Blocks final all-lanes completion and merge-readiness claims."
+    },
+    "final_all_lanes_gate": {
+      "phase": "final_all_lanes_gate",
+      "status": "blocked",
+      "trigger": "Run only after every required capability claim has fresh named evidence.",
+      "owner": "future root verifier",
+      "required_inputs": [
+        "All lane ready receipts",
+        "Live capture evidence",
+        "Redaction fixture report",
+        "Review UI/runtime proof",
+        "Replay voice proof"
+      ],
+      "blocking": true,
+      "claim_ceiling_impact": "Blocks completion of the narrated Record & Replay ultragoal."
+    }
+  },
+      "generated_at": "2026-06-21T01:54:51Z"
+}

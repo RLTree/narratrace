@@ -1,0 +1,6 @@
+interface:
+  display_name: "Narrated Bug Report"
+  short_description: "Capture narrated bug reproductions."
+  default_prompt: "Use $narrated-record-replay:narrated-bug-report while I reproduce the bug and explain what should happen."
+policy:
+  allow_implicit_invocation: false
